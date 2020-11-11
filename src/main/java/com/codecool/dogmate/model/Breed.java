@@ -2,7 +2,7 @@ package com.codecool.dogmate.model;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "breed")
 public class Breed {
 
     @Id

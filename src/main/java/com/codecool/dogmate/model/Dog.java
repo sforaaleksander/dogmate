@@ -5,7 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "dogs")
 public class Dog {
 
     @Id

@@ -2,7 +2,7 @@ package com.codecool.dogmate.model;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "user_types")
 public class UserType {
 
     @Id
