@@ -13,10 +13,10 @@ public class Location {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 9, scale = 6)
     private BigDecimal longitude;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 8, scale = 6)
     private BigDecimal latitude;
 
     @Column(columnDefinition = "boolean default true", nullable = false)
