@@ -31,9 +31,6 @@ public class Dog {
     @ManyToOne
     private Temper temper;
 
-    @ManyToOne
-    private User user;
-
     @Column(columnDefinition = "boolean default true", nullable = false)
     private Boolean isActive = true;
 
