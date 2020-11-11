@@ -19,7 +19,7 @@ public class LoginAttempt {
     @Column(nullable = false)
     private boolean isSuccessful;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 45)
     private String ip;
 
     public LoginAttempt(Long id, User user, Timestamp time, boolean isSuccessful, String ip) {

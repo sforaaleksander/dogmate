@@ -9,7 +9,7 @@ public class WalkStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     //@Enumerated(EnumType.ORDINAL)
     private String name;
 
