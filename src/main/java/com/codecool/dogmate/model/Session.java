@@ -10,7 +10,6 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
-    @Column(nullable = false)
     @ManyToOne
     private User user;
 

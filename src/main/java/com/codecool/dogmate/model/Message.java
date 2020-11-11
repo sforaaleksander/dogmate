@@ -12,11 +12,9 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     @ManyToOne
     private User sender;
 
-    @Column(nullable = false)
     @ManyToOne
     private User recipient;
 

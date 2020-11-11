@@ -10,7 +10,7 @@ public class WalkStatus {
     private Long id;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.ORDINAL)
+    //@Enumerated(EnumType.ORDINAL)
     private String name;
 
     WalkStatus(Long id, String name) {

@@ -10,11 +10,9 @@ public class Friends {
     private Long id;
 
     @ManyToOne
-    @Column(nullable = false)
     private User relatingUser;
 
     @ManyToOne
-    @Column(nullable = false)
     private User relatedUser;
 
     @Column(columnDefinition = "boolean default false")

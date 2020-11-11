@@ -25,16 +25,13 @@ public class Dog {
     @Column(columnDefinition = "boolean default true")
     private boolean isDefaultDog = true;
 
-    @Column(nullable = false)
     @ManyToOne
     private Breed breed;
 
-    @Column(nullable = false)
     @ManyToOne
     private Temper temper;
 
     @ManyToOne
-    @Column(nullable = false)
     private User user;
 
     @Column(columnDefinition = "boolean default true", nullable = false)

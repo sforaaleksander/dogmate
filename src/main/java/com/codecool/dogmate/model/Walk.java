@@ -16,11 +16,9 @@ public class Walk {
     @Column(nullable = false)
     private Timestamp startTime;
 
-    @Column(nullable = false)
     @ManyToOne
     private Location location;
 
-    @Column(nullable = false)
     @ManyToOne
     private WalkStatus walkStatus;
 

@@ -28,7 +28,6 @@ public class User {
     @Lob
     private Blob avatar;
 
-    @Column(nullable = false)
     @ManyToOne
     private UserType userType;
 
