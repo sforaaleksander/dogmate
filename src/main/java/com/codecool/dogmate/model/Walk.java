@@ -29,7 +29,7 @@ public class Walk {
     private Boolean isActive = true;
 
     @ManyToOne
-    private User userId;
+    private User user;
 
     public Walk(Long id, Integer duration, Timestamp startTime, Location location, WalkStatus walkStatus) {
         this.id = id;
