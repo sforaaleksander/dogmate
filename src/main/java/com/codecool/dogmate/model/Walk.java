@@ -28,6 +28,9 @@ public class Walk {
     @Column(columnDefinition = "boolean default true", nullable = false)
     private Boolean isActive = true;
 
+    @ManyToOne
+    private User userId;
+
     public Walk(Long id, Integer duration, Timestamp startTime, Location location, WalkStatus walkStatus) {
         this.id = id;
         this.duration = duration;
