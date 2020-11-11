@@ -1,13 +1,26 @@
 package com.codecool.dogmate.model;
 
-public class UserType {
-//    ADMIN, USER
+import javax.persistence.*;
 
-    private final Long id;
-    private final String name;
+@Entity
+public class UserType {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
 
     public UserType(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public UserType() {
+    }
+
+    public enum WalkStatusEnum {
+        ADMIN, USER
     }
 }

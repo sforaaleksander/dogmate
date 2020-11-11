@@ -1,13 +1,26 @@
 package com.codecool.dogmate.model;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
 public class Location {
 
-    private final Long id;
-    private final String name;
-    private final BigDecimal longitude;
-    private final BigDecimal latitude;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private BigDecimal longitude;
+
+    @Column(nullable = false)
+    private BigDecimal latitude;
+
+    @Column(columnDefinition = "boolean default true", nullable = false)
+    private Boolean isActive = true;
 
     public Location(Long id, String name, BigDecimal longitude, BigDecimal latitude) {
         this.id = id;
@@ -15,4 +28,6 @@ public class Location {
         this.longitude = longitude;
         this.latitude = latitude;
     }
+
+    public Location() {}
 }

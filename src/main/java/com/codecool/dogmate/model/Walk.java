@@ -1,14 +1,34 @@
 package com.codecool.dogmate.model;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
 public class Walk {
 
-    private final Long id;
-    private final Integer duration;
-    private final Timestamp startTime;
-    private final Location location;
-    private final WalkStatus walkStatus;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private Integer duration;
+
+    @Column(nullable = false)
+    private Timestamp startTime;
+
+    @Column(nullable = false)
+    @ManyToOne
+    private Location location;
+
+    @Column(nullable = false)
+    @ManyToOne
+    private WalkStatus walkStatus;
+
+    @Column(columnDefinition = "boolean default true", nullable = false)
+    private Boolean isVisible = true;
+
+    @Column(columnDefinition = "boolean default true", nullable = false)
+    private Boolean isActive = true;
 
     public Walk(Long id, Integer duration, Timestamp startTime, Location location, WalkStatus walkStatus) {
         this.id = id;
@@ -16,5 +36,9 @@ public class Walk {
         this.startTime = startTime;
         this.location = location;
         this.walkStatus = walkStatus;
+    }
+
+    public Walk() {
+
     }
 }

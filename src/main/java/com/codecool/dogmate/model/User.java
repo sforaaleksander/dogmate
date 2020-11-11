@@ -1,19 +1,39 @@
 package com.codecool.dogmate.model;
 
+import javax.persistence.*;
 import java.sql.Blob;
+import java.util.Set;
 
+@Entity
 public class User {
 
-    private final Long id;
-    private final String name;
-    private final String email;
-    private final boolean isActive;
-    private final String password;
-    private final String about;
-    private final Blob avatar;
-    private final UserType userType;
-//    @ManyToMany
-//    private final Dog dog;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(columnDefinition = "boolean default true")
+    private boolean isActive = true;
+
+    @Column(nullable = false)
+    private String password;
+
+    private String about;
+
+    @Lob
+    private Blob avatar;
+
+    @Column(nullable = false)
+    @ManyToOne
+    private UserType userType;
+
+    @ManyToMany
+    private Set<Dog> dogs;
 
     public User(Long id, String name, String email, boolean isActive, String password, String about, Blob avatar, UserType userType) {
         this.id = id;
@@ -25,4 +45,6 @@ public class User {
         this.avatar = avatar;
         this.userType = userType;
     }
+
+    public User() {}
 }

@@ -1,18 +1,44 @@
 package com.codecool.dogmate.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Dog {
 
-    private final Long id;
-    private final String name;
-    private final boolean isMale;
-    private final Date dateOfBirth;
-    private final boolean isDefaultDog;
-    private final Breed breed;
-    private final Temper temper;
-//    @ManyToMany
-//    private final User user;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    private boolean isMale;
+
+    @Column(nullable = false)
+    @CreationTimestamp
+    private Date dateOfBirth;
+
+    @Column(columnDefinition = "boolean default true")
+    private boolean isDefaultDog = true;
+
+    @Column(nullable = false)
+    @ManyToOne
+    private Breed breed;
+
+    @Column(nullable = false)
+    @ManyToOne
+    private Temper temper;
+
+    @ManyToOne
+    @Column(nullable = false)
+    private User user;
+
+    @Column(columnDefinition = "boolean default true", nullable = false)
+    private Boolean isActive = true;
 
     public Dog(Long id, String name, boolean isMale, Date dateOfBirth, boolean isDefaultDog, Breed breed, Temper temper) {
         this.id = id;
@@ -23,4 +49,6 @@ public class Dog {
         this.breed = breed;
         this.temper = temper;
     }
+
+    public Dog() {}
 }
