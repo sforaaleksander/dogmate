@@ -50,4 +50,16 @@ public class Walk implements Indexable<Long> {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public Timestamp getStartTime() {
+        return startTime;
+    }
+
+    public Boolean getVisible() {
+        return isVisible;
+    }
 }
