@@ -5,7 +5,7 @@ import java.sql.Blob;
 import java.util.Set;
 
 @Entity(name = "users")
-public class User implements Indexable {
+public class User implements Indexable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

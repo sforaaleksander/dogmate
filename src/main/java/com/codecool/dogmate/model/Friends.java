@@ -3,7 +3,7 @@ package com.codecool.dogmate.model;
 import javax.persistence.*;
 
 @Entity
-public class Friends implements Indexable {
+public class Friends implements Indexable<FriendsKey> {
 
     @EmbeddedId
     FriendsKey id;
@@ -29,4 +29,13 @@ public class Friends implements Indexable {
     public Friends() {
     }
 
+    @Override
+    public void setId(FriendsKey id) {
+        this.id = id;
+    }
+
+    @Override
+    public FriendsKey getId() {
+        return id;
+    }
 }

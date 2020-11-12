@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity(name = "dogs")
-public class Dog implements Indexable {
+public class Dog implements Indexable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

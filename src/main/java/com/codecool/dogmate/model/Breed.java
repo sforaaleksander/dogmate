@@ -3,7 +3,7 @@ package com.codecool.dogmate.model;
 import javax.persistence.*;
 
 @Entity(name = "breeds")
-public class Breed implements Indexable {
+public class Breed implements Indexable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

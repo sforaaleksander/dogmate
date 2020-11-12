@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity(name = "walks")
-public class Walk implements Indexable {
+public class Walk implements Indexable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

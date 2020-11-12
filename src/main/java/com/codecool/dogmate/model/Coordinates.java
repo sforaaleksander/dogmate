@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
 @Entity
-public class Coordinates implements Indexable {
+public class Coordinates implements Indexable<Long> {
     @Id
     private Long id;
 
