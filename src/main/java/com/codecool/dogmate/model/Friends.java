@@ -5,14 +5,17 @@ import javax.persistence.*;
 @Entity
 public class Friends {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    FriendsKey id;
 
     @ManyToOne
+    @MapsId("relatingUserId")
+    @JoinColumn(name = "relating_user_id")
     private User relatingUser;
 
     @ManyToOne
+    @MapsId("relatedUserId")
+    @JoinColumn(name = "related_user_id")
     private User relatedUser;
 
     @Column(columnDefinition = "boolean default false")
@@ -24,5 +27,6 @@ public class Friends {
         this.isAccepted = isAccepted;
     }
 
-    public Friends() {}
+    public Friends() {
+    }
 }
