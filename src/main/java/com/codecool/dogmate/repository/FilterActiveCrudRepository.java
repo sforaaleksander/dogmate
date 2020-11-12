@@ -1,4 +1,9 @@
 package com.codecool.dogmate.repository;
 
-public class FilterActiveRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.NoRepositoryBean;
+
+@NoRepositoryBean
+public interface FilterActiveCrudRepository<T> extends CrudRepository<T, Long> {
+    Iterable<T> findAllByIsActiveTrue();
 }
