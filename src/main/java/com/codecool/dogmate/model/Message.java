@@ -25,8 +25,7 @@ public class Message {
     @CreationTimestamp
     private Timestamp time = new Timestamp(new java.util.Date().getTime()); //TODO delegate to database?
 
-    public Message(Long id, User sender, User recipient, String content) {
-        this.id = id;
+    public Message(User sender, User recipient, String content) {
         this.sender = sender;
         this.recipient = recipient;
         this.content = content;

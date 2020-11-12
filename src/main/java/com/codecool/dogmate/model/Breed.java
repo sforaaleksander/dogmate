@@ -12,8 +12,7 @@ public class Breed {
     @Column(nullable = false, length = 50)
     private String name;
 
-    public Breed(Long id, String name) {
-        this.id = id;
+    public Breed(String name) {
         this.name = name;
     }
 

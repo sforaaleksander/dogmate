@@ -40,12 +40,10 @@ public class Dog {
             inverseJoinColumns = @JoinColumn(name = "walk_id"))
     private Set<Walk> walks;
 
-    public Dog(Long id, String name, boolean isMale, Date dateOfBirth, boolean isDefaultDog, Breed breed, Temper temper) {
-        this.id = id;
+    public Dog(String name, boolean isMale, Date dateOfBirth, Breed breed, Temper temper) {
         this.name = name;
         this.isMale = isMale;
         this.dateOfBirth = dateOfBirth;
-        this.isDefaultDog = isDefaultDog;
         this.breed = breed;
         this.temper = temper;
     }

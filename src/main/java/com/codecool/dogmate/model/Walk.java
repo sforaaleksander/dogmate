@@ -31,8 +31,7 @@ public class Walk {
     @ManyToOne
     private User user;
 
-    public Walk(Long id, Integer duration, Timestamp startTime, WalkArea walkArea, WalkStatus walkStatus) {
-        this.id = id;
+    public Walk(Integer duration, Timestamp startTime, WalkArea walkArea, WalkStatus walkStatus) {
         this.duration = duration;
         this.startTime = startTime;
         this.walkArea = walkArea;

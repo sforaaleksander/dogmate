@@ -21,10 +21,9 @@ public class Friends {
     @Column(columnDefinition = "boolean default false")
     private boolean isAccepted = false;
 
-    public Friends(User relatingUser, User relatedUser, boolean isAccepted) {
+    public Friends(User relatingUser, User relatedUser) {
         this.relatingUser = relatingUser;
         this.relatedUser = relatedUser;
-        this.isAccepted = isAccepted;
     }
 
     public Friends() {
