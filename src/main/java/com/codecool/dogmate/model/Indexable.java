@@ -1,7 +1,6 @@
 package com.codecool.dogmate.model;
 
-public interface Indexable {
-    void setId(Long id);
+public interface Indexable<T> {
+    void setId(T id);
     Long getId();
 }
-

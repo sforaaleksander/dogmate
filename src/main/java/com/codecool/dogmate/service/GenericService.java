@@ -10,10 +10,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public abstract class GenericService<T> {
-    protected final CrudRepository<T, Long> repository;
+public abstract class GenericService<T, U> {
+    protected final CrudRepository<T, U> repository;
 
-    public GenericService(CrudRepository<T, Long> repository) {
+    public GenericService(CrudRepository<T, U> repository) {
         this.repository = repository;
     }
 
@@ -25,20 +25,20 @@ public abstract class GenericService<T> {
         return this.getClass().getSimpleName().replace("Service", "");
     }
 
-    public T getById(Long id) {
+    public T getById(U id) {
         Optional<T> optional = repository.findById(id);
         if (optional.isPresent() && ((Archivable) optional.get()).getIsActive()) return optional.get();
         throw new NotFoundException();
     }
 
-    public void removeById(Long id) {
+    public void removeById(U id) {
         T t = getById(id);
 
         ((Archivable) t).setIsActive(false);
         repository.save(t);
     }
 
-    public void update(T newObject, Long id) {
+    public void update(T newObject, U id) {
         if (!repository.existsById(id)) throw new NotFoundException();
 
         ((Indexable) newObject).setId(id);
@@ -51,10 +51,6 @@ public abstract class GenericService<T> {
             throw new UnprocessableEntityException("invalid data provided");
         }
         repository.save(object);
-    }
-
-    public Long getMaxId() {
-        return repository.count();
     }
 }
 
