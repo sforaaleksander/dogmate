@@ -13,8 +13,7 @@ public class WalkStatus {
     //@Enumerated(EnumType.ORDINAL)
     private String name;
 
-    WalkStatus(Long id, String name) {
-        this.id = id;
+    WalkStatus(String name) {
         this.name = name;
     }
 

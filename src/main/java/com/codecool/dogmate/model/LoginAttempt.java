@@ -22,8 +22,7 @@ public class LoginAttempt {
     @Column(nullable = false, length = 45)
     private String ip;
 
-    public LoginAttempt(Long id, User user, Timestamp time, boolean isSuccessful, String ip) {
-        this.id = id;
+    public LoginAttempt(User user, Timestamp time, boolean isSuccessful, String ip) {
         this.user = user;
         this.time = time;
         this.isSuccessful = isSuccessful;

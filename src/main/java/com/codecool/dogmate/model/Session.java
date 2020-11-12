@@ -14,12 +14,20 @@ public class Session {
     private User user;
 
     @Column(nullable = false)
-    private Timestamp startDate;
+    private Timestamp startTime;
 
-    public Session(String id, User user, Timestamp startDate) {
+    @Column(nullable = false)
+    private Timestamp endTime;
+
+    @OneToOne
+    private LoginAttempt loginAttempt;
+
+    public Session(String id, User user, Timestamp startTime, Timestamp endTime, LoginAttempt loginAttempt) {
         this.id = id;
         this.user = user;
-        this.startDate = startDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.loginAttempt = loginAttempt;
     }
 
     public Session() {}

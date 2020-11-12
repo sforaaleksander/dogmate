@@ -36,16 +36,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "dog_id"))
     private Set<Dog> dogs;
 
-    @OneToMany
-    @JoinTable(joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "walk_id"))
-    private Set<Walk> walks;
-
-    public User(Long id, String name, String email, boolean isActive, String password, String about, Blob avatar, UserType userType) {
-        this.id = id;
+    public User(String name, String email, String password, String about, Blob avatar, UserType userType) {
         this.name = name;
         this.email = email;
-        this.isActive = isActive;
         this.password = password;
         this.about = about;
         this.avatar = avatar;

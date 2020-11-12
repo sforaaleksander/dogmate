@@ -12,8 +12,7 @@ public class UserType {
     @Column(nullable = false, length = 20)
     private String name;
 
-    public UserType(Long id, String name) {
-        this.id = id;
+    public UserType(String name) {
         this.name = name;
     }
 

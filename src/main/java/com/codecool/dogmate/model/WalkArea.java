@@ -1,9 +1,10 @@
 package com.codecool.dogmate.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
-@Entity(name = "breeds")
-public class Breed {
+@Entity(name = "walk_areas")
+public class WalkArea {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,9 +13,12 @@ public class Breed {
     @Column(nullable = false, length = 50)
     private String name;
 
-    public Breed(String name) {
+    @Column(columnDefinition = "boolean default true", nullable = false)
+    private Boolean isActive = true;
+
+    public WalkArea(String name) {
         this.name = name;
     }
 
-    public Breed() {}
+    public WalkArea() {}
 }

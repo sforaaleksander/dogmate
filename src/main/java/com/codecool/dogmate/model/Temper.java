@@ -12,8 +12,7 @@ public class Temper {
     @Column(nullable = false, length = 50)
     private String name;
 
-    public Temper(Long id, String name) {
-        this.id = id;
+    public Temper(String name) {
         this.name = name;
     }
 
