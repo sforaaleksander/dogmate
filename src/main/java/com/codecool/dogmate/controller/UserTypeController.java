@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/userTypes")
-public class UserTypeController extends GenericController<UserType> {
+public class UserTypeController extends GenericController<UserType, Long> {
 
     @Autowired
     UserTypeController(UserTypeService userTypeService) {

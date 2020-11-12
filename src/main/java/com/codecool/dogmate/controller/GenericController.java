@@ -5,10 +5,10 @@ import com.codecool.dogmate.service.GenericService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-public abstract class GenericController<T extends Indexable> {
-    private final GenericService<T> service;
+public abstract class GenericController<T extends Indexable<ID>, ID> {
+    private final GenericService<T, ID> service;
 
-    GenericController(GenericService<T> service) {
+    GenericController(GenericService<T, ID> service) {
         this.service = service;
     }
 
@@ -18,18 +18,18 @@ public abstract class GenericController<T extends Indexable> {
     }
 
     @GetMapping(value = "/{id}")
-    public T getById(@PathVariable Long id) {
+    public T getById(@PathVariable ID id) {
         return service.getById(id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "/{id}")
-    public void deleteById(@PathVariable Long id) {
+    public void deleteById(@PathVariable ID id) {
         service.removeById(id);
     }
 
     @PutMapping(value = "/{id}")
-    public void update(@RequestBody T newObject, @PathVariable Long id) {
+    public void update(@RequestBody T newObject, @PathVariable ID id) {
         service.update(newObject, id);
     }
 

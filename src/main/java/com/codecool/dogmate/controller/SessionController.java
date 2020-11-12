@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/sessions")
-public class SessionController extends GenericController<Session> {
+public class SessionController extends GenericController<Session, String> {
 
     @Autowired
     SessionController(SessionService sessionService) {

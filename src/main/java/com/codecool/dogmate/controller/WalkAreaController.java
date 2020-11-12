@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/walkAreas")
-public class WalkAreaController extends GenericController<WalkArea> {
+public class WalkAreaController extends GenericController<WalkArea, Long> {
 
     @Autowired
     WalkAreaController(WalkAreaService walkAreaService) {

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/coordinates")
-public class CoordinatesController extends GenericController<Coordinates> {
+public class CoordinatesController extends GenericController<Coordinates, Long> {
 
     @Autowired
     CoordinatesController(CoordinatesService coordinatesService) {

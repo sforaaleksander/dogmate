@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/messages")
-public class MessageController extends GenericController<Message> {
+public class MessageController extends GenericController<Message, Long> {
 
     @Autowired
     MessageController(MessageService messageService) {

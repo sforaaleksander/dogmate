@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/breeds")
-public class BreedController extends GenericController<Breed> {
+public class BreedController extends GenericController<Breed, Long> {
 
     @Autowired
     BreedController(BreedService breedService) {
