@@ -57,4 +57,20 @@ public class User implements Indexable<Long> {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
 }

@@ -33,4 +33,8 @@ public class WalkStatus implements Indexable<Long> {
     public enum WalkStatusEnum {
         PLANNED, CANCELLED, PAST, ONGOING;
     }
+
+    public String getName() {
+        return name;
+    }
 }

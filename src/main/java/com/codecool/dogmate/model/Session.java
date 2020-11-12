@@ -41,4 +41,20 @@ public class Session implements Indexable<String> {
     public String getId() {
         return id;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Timestamp getStartTime() {
+        return startTime;
+    }
+
+    public Timestamp getEndTime() {
+        return endTime;
+    }
+
+    public LoginAttempt getLoginAttempt() {
+        return loginAttempt;
+    }
 }
