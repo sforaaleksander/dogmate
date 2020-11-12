@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/friends")
+@RequestMapping("/api/v1/friends")
 public class FriendsController extends GenericController<Friends, FriendsKey> {
 
     @Autowired

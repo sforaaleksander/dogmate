@@ -24,7 +24,7 @@ public class DogMateApplication {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant("/*"))
+                .paths(PathSelectors.ant("/api/v1/*"))
                 .build()
                 .apiInfo(apiDetails());
     }
