@@ -35,3 +35,5 @@ build/
 .vscode/
 
 data
+
+src/main/java/com/codecool/dogmate/service/CodeGenerationService.java
