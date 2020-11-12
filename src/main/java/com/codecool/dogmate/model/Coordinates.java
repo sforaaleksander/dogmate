@@ -1,10 +1,13 @@
 package com.codecool.dogmate.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
 @Entity
-public class Coordinates {
+public class Coordinates implements Indexable {
     @Id
     private Long id;
 
@@ -24,5 +27,15 @@ public class Coordinates {
     }
 
     public Coordinates() {
+    }
+
+    @Override
+    public Long getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
     }
 }

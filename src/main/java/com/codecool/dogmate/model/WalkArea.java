@@ -1,10 +1,9 @@
 package com.codecool.dogmate.model;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity(name = "walk_areas")
-public class WalkArea {
+public class WalkArea implements Indexable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +19,16 @@ public class WalkArea {
         this.name = name;
     }
 
-    public WalkArea() {}
+    public WalkArea() {
+    }
+
+    @Override
+    public Long getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
