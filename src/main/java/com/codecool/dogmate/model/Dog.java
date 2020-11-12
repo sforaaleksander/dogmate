@@ -60,4 +60,68 @@ public class Dog implements Indexable<Long> {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isMale() {
+        return isMale;
+    }
+
+    public void setMale(boolean male) {
+        isMale = male;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public boolean isDefaultDog() {
+        return isDefaultDog;
+    }
+
+    public void setDefaultDog(boolean defaultDog) {
+        isDefaultDog = defaultDog;
+    }
+
+    public Breed getBreed() {
+        return breed;
+    }
+
+    public void setBreed(Breed breed) {
+        this.breed = breed;
+    }
+
+    public Temper getTemper() {
+        return temper;
+    }
+
+    public void setTemper(Temper temper) {
+        this.temper = temper;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public Set<Walk> getWalks() {
+        return walks;
+    }
+
+    public void setWalks(Set<Walk> walks) {
+        this.walks = walks;
+    }
 }
