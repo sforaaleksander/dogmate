@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity(name = "dogs")
 public class Dog {
@@ -33,6 +34,11 @@ public class Dog {
 
     @Column(columnDefinition = "boolean default true", nullable = false)
     private Boolean isActive = true;
+
+    @OneToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "dog_id"),
+            inverseJoinColumns = @JoinColumn(name = "walk_id"))
+    private Set<Walk> walks;
 
     public Dog(Long id, String name, boolean isMale, Date dateOfBirth, boolean isDefaultDog, Breed breed, Temper temper) {
         this.id = id;

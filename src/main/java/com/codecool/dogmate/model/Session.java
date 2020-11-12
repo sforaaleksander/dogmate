@@ -14,13 +14,13 @@ public class Session {
     private User user;
 
     @Column(nullable = false)
-    private Timestamp startDate;
+    private Timestamp startTime;
 
-    public Session(String id, User user, Timestamp startDate) {
-        this.id = id;
-        this.user = user;
-        this.startDate = startDate;
-    }
+    @Column(nullable = false)
+    private Timestamp endTime;
+
+    @OneToOne
+    private LoginAttempt loginAttempt;
 
     public Session() {}
 }
