@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity(name = "dogs")
-public class Dog {
+public class Dog implements Indexable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,5 +48,16 @@ public class Dog {
         this.temper = temper;
     }
 
-    public Dog() {}
+    public Dog() {
+    }
+
+    @Override
+    public Long getId() {
+        return this.id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
