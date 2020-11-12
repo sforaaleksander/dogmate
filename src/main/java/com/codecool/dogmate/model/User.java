@@ -31,7 +31,7 @@ public class User {
     @ManyToOne
     private UserType userType;
 
-    @ManyToMany
+    @OneToMany
     private Set<Dog> dogs;
 
     @OneToMany
