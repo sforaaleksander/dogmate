@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 @NoRepositoryBean
-public interface FilterActiveCrudRepository<T> extends CrudRepository<T, Long> {
+public interface FilterActiveCrudRepository<T, ID> extends CrudRepository<T, ID> {
     Iterable<T> findAllByIsActiveTrue();
 }

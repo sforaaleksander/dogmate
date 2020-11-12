@@ -4,7 +4,7 @@ import com.codecool.dogmate.model.Dog;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DogRepository extends FilterActiveCrudRepository<Dog>{
+public interface DogRepository extends FilterActiveCrudRepository<Dog, Long> {
 
     Iterable<Dog> findAllByIsActiveTrue();
 }

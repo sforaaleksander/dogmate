@@ -1,8 +1,11 @@
 package com.codecool.dogmate.repository;
 
 import com.codecool.dogmate.model.Friends;
+import com.codecool.dogmate.model.FriendsKey;
 
-public interface FriendsRepository extends FilterActiveCrudRepository<Friends> {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-    Iterable<Friends> findAllByIsActiveTrue();
+@Repository
+public interface FriendsRepository extends CrudRepository<Friends, FriendsKey> {
 }

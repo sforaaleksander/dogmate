@@ -2,7 +2,9 @@ package com.codecool.dogmate.repository;
 
 import com.codecool.dogmate.model.Message;
 
-public interface MessageRepository extends FilterActiveCrudRepository<Message> {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-    Iterable<Message> findAllByIsActiveTrue();
+@Repository
+public interface MessageRepository extends CrudRepository<Message, Long> {
 }

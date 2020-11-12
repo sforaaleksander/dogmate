@@ -2,7 +2,9 @@ package com.codecool.dogmate.repository;
 
 import com.codecool.dogmate.model.LoginAttempt;
 
-public interface LoginAttemptRepository extends FilterActiveCrudRepository<LoginAttempt> {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-    Iterable<LoginAttempt> findAllByIsActiveTrue();
+@Repository
+public interface LoginAttemptRepository extends CrudRepository<LoginAttempt, Long> {
 }

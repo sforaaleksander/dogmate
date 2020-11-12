@@ -2,7 +2,9 @@ package com.codecool.dogmate.repository;
 
 import com.codecool.dogmate.model.Session;
 
-public interface SessionRepository extends FilterActiveCrudRepository<Session> {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-    Iterable<Session> findAllByIsActiveTrue();
+@Repository
+public interface SessionRepository extends CrudRepository<Session, String> {
 }

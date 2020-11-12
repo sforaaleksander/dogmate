@@ -1,8 +1,9 @@
 package com.codecool.dogmate.repository;
 
 import com.codecool.dogmate.model.WalkStatus;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface WalkStatusRepository extends FilterActiveCrudRepository<WalkStatus> {
-
-    Iterable<WalkStatus> findAllByIsActiveTrue();
+@Repository
+public interface WalkStatusRepository extends CrudRepository<WalkStatus, Long> {
 }

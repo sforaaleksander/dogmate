@@ -2,7 +2,9 @@ package com.codecool.dogmate.repository;
 
 import com.codecool.dogmate.model.Temper;
 
-public interface TemperRepository extends FilterActiveCrudRepository<Temper> {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-    Iterable<Temper> findAllByIsActiveTrue();
+@Repository
+public interface TemperRepository extends CrudRepository<Temper, Long> {
 }

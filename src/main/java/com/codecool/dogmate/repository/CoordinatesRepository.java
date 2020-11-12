@@ -2,7 +2,9 @@ package com.codecool.dogmate.repository;
 
 import com.codecool.dogmate.model.Coordinates;
 
-public interface CoordinatesRepository extends FilterActiveCrudRepository<Coordinates> {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-    Iterable<Coordinates> findAllByIsActiveTrue();
+@Repository
+public interface CoordinatesRepository extends CrudRepository<Coordinates, Long> {
 }
