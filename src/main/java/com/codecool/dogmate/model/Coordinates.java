@@ -38,4 +38,28 @@ public class Coordinates implements Indexable<Long> {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public WalkArea getWalkArea() {
+        return walkArea;
+    }
+
+    public void setWalkArea(WalkArea walkArea) {
+        this.walkArea = walkArea;
+    }
 }

@@ -38,4 +38,28 @@ public class Friends implements Indexable<FriendsKey> {
     public FriendsKey getId() {
         return id;
     }
+
+    public User getRelatingUser() {
+        return relatingUser;
+    }
+
+    public void setRelatingUser(User relatingUser) {
+        this.relatingUser = relatingUser;
+    }
+
+    public User getRelatedUser() {
+        return relatedUser;
+    }
+
+    public void setRelatedUser(User relatedUser) {
+        this.relatedUser = relatedUser;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
+    }
 }
