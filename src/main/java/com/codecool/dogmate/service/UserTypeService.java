@@ -12,8 +12,4 @@ public class UserTypeService extends GenericService<UserType> {
     UserTypeService(UserTypeRepository repository) {
         super(repository);
     }
-
-    public UserType getByName(String name) {
-        return ((UserTypeRepository) repository).findByNameIgnoreCase(name);
-    }
 }
