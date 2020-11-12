@@ -10,43 +10,43 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public abstract class GenericService<T, U> {
-    protected final CrudRepository<T, U> repository;
+public abstract class GenericService<T extends Indexable<ID>, ID> {
+    protected final CrudRepository<T, ID> repository;
 
-    public GenericService(CrudRepository<T, U> repository) {
+    public GenericService(CrudRepository<T, ID> repository) {
         this.repository = repository;
     }
 
     public Iterable<T> getAll() {
-        return ((FilterActiveCrudRepository<T>) repository).findAllByIsActiveTrue();
+        return ((FilterActiveCrudRepository<T, ID>) repository).findAllByIsActiveTrue();
     }
 
     private String getEntityName() {
         return this.getClass().getSimpleName().replace("Service", "");
     }
 
-    public T getById(U id) {
+    public T getById(ID id) {
         Optional<T> optional = repository.findById(id);
         if (optional.isPresent() && ((Archivable) optional.get()).getIsActive()) return optional.get();
         throw new NotFoundException();
     }
 
-    public void removeById(U id) {
+    public void removeById(ID id) {
         T t = getById(id);
 
         ((Archivable) t).setIsActive(false);
         repository.save(t);
     }
 
-    public void update(T newObject, U id) {
+    public void update(T newObject, ID id) {
         if (!repository.existsById(id)) throw new NotFoundException();
 
-        ((Indexable) newObject).setId(id);
+        newObject.setId(id);
         repository.save(newObject);
     }
 
     public void insert(T object) {
-        ((Indexable) object).setId(null);
+        object.setId(null);
         if (!((Validable) object).isValid()) {
             throw new UnprocessableEntityException("invalid data provided");
         }

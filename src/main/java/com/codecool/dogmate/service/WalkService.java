@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WalkService extends GenericService<Walk> {
+public class WalkService extends GenericService<Walk, Long> {
 
     @Autowired
     WalkService(WalkRepository repository) {

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BreedService extends GenericService<Breed> {
+public class BreedService extends GenericService<Breed, Long> {
 
     @Autowired
     BreedService(BreedRepository repository) {

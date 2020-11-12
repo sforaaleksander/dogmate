@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MessageService extends GenericService<Message> {
+public class MessageService extends GenericService<Message, Long> {
 
     @Autowired
     MessageService(MessageRepository repository) {

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TemperService extends GenericService<Temper> {
+public class TemperService extends GenericService<Temper, Long> {
 
     @Autowired
     TemperService(TemperRepository repository) {
