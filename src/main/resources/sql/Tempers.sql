@@ -1,10 +1,5 @@
-insert into TEMPERS(NAME) values ('unpredictable');
-insert into TEMPERS(NAME) values ('dominating');
-insert into TEMPERS(NAME) values ('submissive');
 insert into TEMPERS(NAME) values ('aggressive');
-insert into TEMPERS(NAME) values ('energetic');
-insert into TEMPERS(NAME) values ('obedient');
-insert into TEMPERS(NAME) values ('balanced');
-insert into TEMPERS(NAME) values ('playful');
+insert into TEMPERS(NAME) values ('dominant');
+insert into TEMPERS(NAME) values ('easy-going');
+insert into TEMPERS(NAME) values ('submissive');
 insert into TEMPERS(NAME) values ('fearful');
-insert into TEMPERS(NAME) values ('calm');
