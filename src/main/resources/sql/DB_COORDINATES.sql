@@ -25319,4 +25319,3 @@ insert into coordinates (walk_area_id, latitude, longitude) VALUES (262, 40.7798
 insert into coordinates (walk_area_id, latitude, longitude) VALUES (262, 40.787712, -35.12538);
 insert into coordinates (walk_area_id, latitude, longitude) VALUES (262, 40.796234, -35.121185);
 insert into coordinates (walk_area_id, latitude, longitude) VALUES (792, 2.492807, -89.33077);
-insert into coordinates (walk_area_id, latitude, lo
