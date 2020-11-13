@@ -12,4 +12,9 @@ public class MessageService extends GenericService<Message, Long> {
     MessageService(MessageRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Iterable<Message> getAll() {
+        return repository.findAll();
+    }
 }

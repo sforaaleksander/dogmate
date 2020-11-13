@@ -12,4 +12,9 @@ public class LoginAttemptService extends GenericService<LoginAttempt, Long> {
     LoginAttemptService(LoginAttemptRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Iterable<LoginAttempt> getAll() {
+        return repository.findAll();
+    }
 }

@@ -13,4 +13,9 @@ public class FriendsService extends GenericService<Friends, FriendsKey> {
     FriendsService(FriendsRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Iterable<Friends> getAll() {
+        return repository.findAll();
+    }
 }
