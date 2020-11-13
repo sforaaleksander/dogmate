@@ -12,9 +12,4 @@ public class UserTypeService extends GenericService<UserType, Long> {
     UserTypeService(UserTypeRepository repository) {
         super(repository);
     }
-
-    @Override
-    public Iterable<UserType> getAll() {
-        return repository.findAll();
-    }
 }

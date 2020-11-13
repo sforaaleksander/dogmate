@@ -12,9 +12,4 @@ public class WalkStatusService extends GenericService<WalkStatus, Long> {
     WalkStatusService(WalkStatusRepository repository) {
         super(repository);
     }
-
-    @Override
-    public Iterable<WalkStatus> getAll() {
-        return repository.findAll();
-    }
 }

@@ -14,8 +14,4 @@ public class BreedService extends GenericService<Breed, Long> {
         super(repository);
     }
 
-    @Override
-    public Iterable<Breed> getAll() {
-        return repository.findAll();
-    }
 }

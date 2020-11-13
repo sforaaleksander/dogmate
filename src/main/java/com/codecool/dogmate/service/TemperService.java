@@ -12,9 +12,4 @@ public class TemperService extends GenericService<Temper, Long> {
     TemperService(TemperRepository repository) {
         super(repository);
     }
-
-    @Override
-    public Iterable<Temper> getAll() {
-        return repository.findAll();
-    }
 }

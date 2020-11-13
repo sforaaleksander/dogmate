@@ -12,9 +12,4 @@ public class CoordinatesService extends GenericService<Coordinates, Long> {
     CoordinatesService(CoordinatesRepository repository) {
         super(repository);
     }
-
-    @Override
-    public Iterable<Coordinates> getAll() {
-        return repository.findAll();
-    }
 }
