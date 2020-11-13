@@ -6,6 +6,8 @@ target/
 mvnw
 mvnw.cmd
 FriendsSqlInsertsGenerator.java
+CoordinatesInsertsGenerator.java
+AbstractInsertsGenerator.java
 
 ### STS ###
 .apt_generated
