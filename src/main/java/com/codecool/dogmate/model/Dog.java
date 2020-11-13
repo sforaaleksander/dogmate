@@ -32,7 +32,8 @@ public class Dog implements Indexable<Long> {
     @ManyToOne
     private Temper temper;
 
-    private boolean isNeutered;
+    @Column(columnDefinition = "boolean default false", nullable = false)
+    private Boolean isNeutered = false;
 
     @Column(columnDefinition = "boolean default true", nullable = false)
     private Boolean isActive = true;
