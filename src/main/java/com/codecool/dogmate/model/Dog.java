@@ -32,6 +32,8 @@ public class Dog implements Indexable<Long> {
     @ManyToOne
     private Temper temper;
 
+    private boolean isNeutered;
+
     @Column(columnDefinition = "boolean default true", nullable = false)
     private Boolean isActive = true;
 
@@ -40,12 +42,13 @@ public class Dog implements Indexable<Long> {
             inverseJoinColumns = @JoinColumn(name = "walk_id"))
     private Set<Walk> walks;
 
-    public Dog(String name, boolean isMale, Date dateOfBirth, Breed breed, Temper temper) {
+    public Dog(String name, boolean isMale, Date dateOfBirth, Breed breed, Temper temper, Boolean isNeutered) {
         this.name = name;
         this.isMale = isMale;
         this.dateOfBirth = dateOfBirth;
         this.breed = breed;
         this.temper = temper;
+        this.isNeutered = isNeutered;
     }
 
     public Dog() {
@@ -123,5 +126,13 @@ public class Dog implements Indexable<Long> {
 
     public void setWalks(Set<Walk> walks) {
         this.walks = walks;
+    }
+
+    public boolean isNeutered() {
+        return isNeutered;
+    }
+
+    public void setNeutered(boolean neutered) {
+        isNeutered = neutered;
     }
 }
