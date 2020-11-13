@@ -3,7 +3,7 @@ package com.codecool.dogmate.model;
 import javax.persistence.*;
 
 @Entity(name = "walk_areas")
-public class WalkArea implements Indexable<Long> {
+public class WalkArea implements Indexable<Long>, Archivable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,5 +34,19 @@ public class WalkArea implements Indexable<Long> {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

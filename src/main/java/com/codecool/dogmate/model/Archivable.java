@@ -1,7 +1,7 @@
 package com.codecool.dogmate.model;
 
 public interface Archivable {
-    Boolean getIsActive();
+    Boolean getActive();
 
-    void setIsActive(Boolean active);
+    void setActive(Boolean active);
 }
