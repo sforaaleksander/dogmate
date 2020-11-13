@@ -27,14 +27,14 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
 
     public T getById(ID id) {
         Optional<T> optional = repository.findById(id);
-        if (optional.isPresent() && ((Archivable) optional.get()).getIsActive()) return optional.get();
+        if (optional.isPresent() && ((Archivable) optional.get()).getActive()) return optional.get();
         throw new NotFoundException();
     }
 
     public void removeById(ID id) {
         T t = getById(id);
 
-        ((Archivable) t).setIsActive(false);
+        ((Archivable) t).setActive(false);
         repository.save(t);
     }
 

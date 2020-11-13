@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity(name = "walks")
-public class Walk implements Indexable<Long> {
+public class Walk implements Indexable<Long>, Archivable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,5 +61,51 @@ public class Walk implements Indexable<Long> {
 
     public Boolean getVisible() {
         return isVisible;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public void setStartTime(Timestamp startTime) {
+        this.startTime = startTime;
+    }
+
+    public WalkArea getWalkArea() {
+        return walkArea;
+    }
+
+    public void setWalkArea(WalkArea walkArea) {
+        this.walkArea = walkArea;
+    }
+
+    public WalkStatus getWalkStatus() {
+        return walkStatus;
+    }
+
+    public void setWalkStatus(WalkStatus walkStatus) {
+        this.walkStatus = walkStatus;
+    }
+
+    public void setVisible(Boolean visible) {
+        isVisible = visible;
+    }
+
+    @Override
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
