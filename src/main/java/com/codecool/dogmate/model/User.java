@@ -75,12 +75,12 @@ public class User implements Indexable<Long>, Archivable {
     }
 
     @Override
-    public Boolean getIsActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
     @Override
-    public void setIsActive(Boolean active) {
+    public void setActive(Boolean active) {
         this.isActive = active;
     }
 }
