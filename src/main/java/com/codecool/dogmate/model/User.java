@@ -5,7 +5,7 @@ import java.sql.Blob;
 import java.util.Set;
 
 @Entity(name = "users")
-public class User implements Indexable<Long> {
+public class User implements Indexable<Long>, Archivable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,5 +72,15 @@ public class User implements Indexable<Long> {
 
     public UserType getUserType() {
         return userType;
+    }
+
+    @Override
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setIsActive(Boolean active) {
+        this.isActive = active;
     }
 }
