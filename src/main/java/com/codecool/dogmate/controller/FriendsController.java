@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/friends")
 public class FriendsController {
-    private FriendsService friendsService;
+    private final FriendsService friendsService;
 
     @Autowired
     FriendsController(FriendsService friendsService) {
