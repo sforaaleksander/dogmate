@@ -51,4 +51,9 @@ public class FriendsKey implements Serializable {
     public int hashCode() {
         return Objects.hash(getRelatingUserId(), getRelatedUserId());
     }
+
+    @Override
+    public String toString() {
+        return  "" + relatingUserId + relatedUserId;
+    }
 }
