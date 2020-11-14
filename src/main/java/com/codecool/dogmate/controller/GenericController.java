@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 public abstract class GenericController<T extends Indexable<ID>, ID> {
-    private final GenericService<T, ID> service;
+    protected final GenericService<T, ID> service;
 
     GenericController(GenericService<T, ID> service) {
         this.service = service;
