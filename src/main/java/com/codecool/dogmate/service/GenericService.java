@@ -5,7 +5,6 @@ import com.codecool.dogmate.exception.UnprocessableEntityException;
 import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.Indexable;
 import com.codecool.dogmate.model.Validable;
-import com.codecool.dogmate.repository.FilterActiveCrudRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
@@ -18,7 +17,7 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
     }
 
     public Iterable<T> getAll() {
-        return ((FilterActiveCrudRepository<T, ID>) repository).findAllByIsActiveTrue();
+        return repository.findAll();
     }
 
     private String getEntityName() {
@@ -27,7 +26,7 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
 
     public T getById(ID id) {
         Optional<T> optional = repository.findById(id);
-        if (optional.isPresent() && ((Archivable) optional.get()).getActive()) return optional.get();
+        if (optional.isPresent()) return optional.get();
         throw new NotFoundException();
     }
 
