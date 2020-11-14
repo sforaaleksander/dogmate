@@ -1,10 +1,13 @@
-src/main/resources/application.properties
-.idea/
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+mvnw
+mvnw.cmd
+FriendsSqlInsertsGenerator.java
+CoordinatesInsertsGenerator.java
+AbstractInsertsGenerator.java
 
 ### STS ###
 .apt_generated
@@ -34,5 +37,6 @@ build/
 ### VS Code ###
 .vscode/
 
-**/src/main/resources/application.properties
-*.log
+data
+
+src/main/java/com/codecool/dogmate/service/CodeGenerationService.java
