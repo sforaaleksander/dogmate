@@ -367,7 +367,7 @@ INSERT INTO PUBLIC.BREEDS (NAME) VALUES ('ESTONIAN HOUND');
 INSERT INTO PUBLIC.BREEDS (NAME) VALUES ('MINIATURE AMERICAN SHEPHERD');
 INSERT INTO PUBLIC.BREEDS (NAME) VALUES ('DACHSHUND');
 
-INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (1, 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.', null, 'agaiter0@nyu.edu', true, 'Amalee', 'QKuboP1s2GCs', 1);
+INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (1, 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.', null, 'agaiter0@nyu.edu', false, 'Amalee', 'QKuboP1s2GCs', 1);
 INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (2, 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', null, 'jarnaldi1@chicagotribune.com', true, 'Jemimah', 'qkLUihIgJ', 1);
 INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (3, 'In hac habitasse platea dictumst.', null, 'bdungay2@posterous.com', true, 'Basil', 'qHMEJLnrdoB', 1);
 INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (4, 'Morbi quis tortor id nulla ultrices aliquet.', null, 'spartrick3@odnoklassniki.ru', true, 'Shirlee', 'dDK2tCK', 1);
