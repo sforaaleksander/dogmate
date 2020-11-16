@@ -5,6 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DogRepository extends FilterActivePagingAndSortingRepository<Dog, Long> {
-
-    Iterable<Dog> findAllByIsActiveTrue();
 }
