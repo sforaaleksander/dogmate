@@ -3,9 +3,10 @@ package com.codecool.dogmate.service;
 import com.codecool.dogmate.exception.NotFoundException;
 import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.User;
-import com.codecool.dogmate.repository.FilterActiveCrudRepository;
+import com.codecool.dogmate.repository.FilterActivePagingAndSortingRepository;
 import com.codecool.dogmate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class UserService extends GenericService<User, Long> {
     }
 
     @Override
-    public Iterable<User> getAll() {
-        return ((FilterActiveCrudRepository<User, Long>) repository).findAllByIsActiveTrue();
+    public Iterable<User> getAll(Integer page, Integer size) {
+        return ((FilterActivePagingAndSortingRepository<User, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size)).getContent();
     }
 }

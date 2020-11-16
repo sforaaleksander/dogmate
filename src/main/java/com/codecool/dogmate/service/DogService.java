@@ -4,8 +4,9 @@ import com.codecool.dogmate.exception.NotFoundException;
 import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.Dog;
 import com.codecool.dogmate.repository.DogRepository;
-import com.codecool.dogmate.repository.FilterActiveCrudRepository;
+import com.codecool.dogmate.repository.FilterActivePagingAndSortingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class DogService extends GenericService<Dog, Long> {
     }
 
     @Override
-    public Iterable<Dog> getAll() {
-        return ((FilterActiveCrudRepository<Dog, Long>) repository).findAllByIsActiveTrue();
+    public Iterable<Dog> getAll(Integer page, Integer size) {
+        return ((FilterActivePagingAndSortingRepository<Dog, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size)).getContent();
     }
 }

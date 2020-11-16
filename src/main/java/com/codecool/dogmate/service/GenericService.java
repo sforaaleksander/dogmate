@@ -5,19 +5,20 @@ import com.codecool.dogmate.exception.UnprocessableEntityException;
 import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.Indexable;
 import com.codecool.dogmate.model.Validable;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Optional;
 
 public abstract class GenericService<T extends Indexable<ID>, ID> {
-    protected final CrudRepository<T, ID> repository;
+    protected final PagingAndSortingRepository<T, ID> repository;
 
-    public GenericService(CrudRepository<T, ID> repository) {
+    public GenericService(PagingAndSortingRepository<T, ID> repository) {
         this.repository = repository;
     }
 
-    public Iterable<T> getAll() {
-        return repository.findAll();
+    public Iterable<T> getAll(Integer page, Integer size) {
+        return repository.findAll(PageRequest.of(page, size)).getContent();
     }
 
     private String getEntityName() {

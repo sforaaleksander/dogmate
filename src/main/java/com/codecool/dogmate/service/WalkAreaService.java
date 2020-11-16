@@ -3,9 +3,10 @@ package com.codecool.dogmate.service;
 import com.codecool.dogmate.exception.NotFoundException;
 import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.WalkArea;
-import com.codecool.dogmate.repository.FilterActiveCrudRepository;
+import com.codecool.dogmate.repository.FilterActivePagingAndSortingRepository;
 import com.codecool.dogmate.repository.WalkAreaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class WalkAreaService extends GenericService<WalkArea, Long> {
     }
 
     @Override
-    public Iterable<WalkArea> getAll() {
-        return ((FilterActiveCrudRepository<WalkArea, Long>) repository).findAllByIsActiveTrue();
+    public Iterable<WalkArea> getAll(Integer page, Integer size) {
+        return ((FilterActivePagingAndSortingRepository<WalkArea, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size)).getContent();
     }
 }
