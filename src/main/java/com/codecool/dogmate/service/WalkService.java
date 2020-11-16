@@ -7,6 +7,7 @@ import com.codecool.dogmate.repository.FilterActivePagingAndSortingRepository;
 import com.codecool.dogmate.repository.WalkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -27,7 +28,7 @@ public class WalkService extends GenericService<Walk, Long> {
     }
 
     @Override
-    public Iterable<Walk> getAll(Integer page, Integer size) {
-        return ((FilterActivePagingAndSortingRepository<Walk, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size)).getContent();
+    public Iterable<Walk> getAll(Integer page, Integer size, String[] sortBy) {
+        return ((FilterActivePagingAndSortingRepository<Walk, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 }

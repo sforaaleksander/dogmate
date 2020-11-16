@@ -6,6 +6,7 @@ import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.Indexable;
 import com.codecool.dogmate.model.Validable;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Optional;
@@ -17,8 +18,8 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
         this.repository = repository;
     }
 
-    public Iterable<T> getAll(Integer page, Integer size) {
-        return repository.findAll(PageRequest.of(page, size)).getContent();
+    public Iterable<T> getAll(Integer page, Integer size, String[] sortBy) {
+        return repository.findAll(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 
     private String getEntityName() {

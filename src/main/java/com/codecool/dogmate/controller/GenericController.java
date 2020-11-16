@@ -15,9 +15,10 @@ public abstract class GenericController<T extends Indexable<ID>, ID> {
     @GetMapping
     public Iterable<T> getAll(
             @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "10") Integer size
-    ) {
-        return service.getAll(page, size);
+            @RequestParam(defaultValue = "10") Integer size,
+            @RequestParam(defaultValue = "id") String... sortBy
+            ) {
+        return service.getAll(page, size, sortBy);
     }
 
     @GetMapping(value = "/{id}")

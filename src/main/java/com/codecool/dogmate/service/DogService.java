@@ -7,6 +7,7 @@ import com.codecool.dogmate.repository.DogRepository;
 import com.codecool.dogmate.repository.FilterActivePagingAndSortingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -27,7 +28,7 @@ public class DogService extends GenericService<Dog, Long> {
     }
 
     @Override
-    public Iterable<Dog> getAll(Integer page, Integer size) {
-        return ((FilterActivePagingAndSortingRepository<Dog, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size)).getContent();
+    public Iterable<Dog> getAll(Integer page, Integer size, String[] sortBy) {
+        return ((FilterActivePagingAndSortingRepository<Dog, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 }

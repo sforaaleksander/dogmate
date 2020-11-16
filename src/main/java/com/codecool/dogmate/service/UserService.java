@@ -7,6 +7,7 @@ import com.codecool.dogmate.repository.FilterActivePagingAndSortingRepository;
 import com.codecool.dogmate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -27,7 +28,7 @@ public class UserService extends GenericService<User, Long> {
     }
 
     @Override
-    public Iterable<User> getAll(Integer page, Integer size) {
-        return ((FilterActivePagingAndSortingRepository<User, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size)).getContent();
+    public Iterable<User> getAll(Integer page, Integer size, String[] sortBy) {
+        return ((FilterActivePagingAndSortingRepository<User, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 }
