@@ -5,6 +5,6 @@ import com.codecool.dogmate.model.WalkArea;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface WalkAreaRepository extends FilterActiveCrudRepository<WalkArea, Long> {
+public interface WalkAreaRepository extends FilterActivePagingAndSortingRepository<WalkArea, Long> {
     Iterable<WalkArea> findAllByIsActiveTrue();
 }
