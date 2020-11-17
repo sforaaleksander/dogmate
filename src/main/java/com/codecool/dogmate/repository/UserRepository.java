@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends FilterActivePagingAndSortingRepository<User, Long> {
 
     Iterable<User> findAllByIsActiveTrue();
+
+    User findByEmail(String email);
 }
