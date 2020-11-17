@@ -16,7 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    private UserDetailsService userCredentialsService;
+    private final UserDetailsService userCredentialsService;
 
     @Autowired
     public SecurityConfiguration(@Qualifier("userCredentialService") UserDetailsService userCredentialsService) {
@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                //.csrf().disable()
+                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/register", "/index").permitAll()
                 .anyRequest().authenticated()
@@ -45,7 +45,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
                 .logoutSuccessUrl("/login");
-
     }
 
     @Bean
