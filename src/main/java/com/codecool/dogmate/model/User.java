@@ -1,5 +1,7 @@
 package com.codecool.dogmate.model;
 
+import com.codecool.dogmate.validator.UserEmail;
+
 import javax.persistence.*;
 import java.sql.Blob;
 import java.util.Set;
@@ -22,6 +24,9 @@ public class User implements Indexable<Long>, Archivable {
 
     @Column(nullable = false)
     private String password;
+
+    @UserEmail
+    private String abcde;
 
     private String about;
 
