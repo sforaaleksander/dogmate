@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/coordinates")
+@RequestMapping("${api.endpoint}/coordinates")
 public class CoordinatesController extends GenericController<Coordinates, Long> {
 
     @Autowired

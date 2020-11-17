@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/breeds")
+@RequestMapping("${api.endpoint}/breeds")
 public class BreedController extends GenericController<Breed, Long> {
 
     @Autowired
