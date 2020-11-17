@@ -8,12 +8,14 @@ import com.codecool.dogmate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class UserService extends GenericService<User, Long> {
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     UserService(UserRepository repository) {
@@ -30,5 +32,16 @@ public class UserService extends GenericService<User, Long> {
     @Override
     public Iterable<User> getAll(Integer page, Integer size, String[] sortBy) {
         return ((FilterActivePagingAndSortingRepository<User, Long>) repository).findAllByIsActiveTrue(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
+    }
+
+    @Override
+    public void insert(User user){
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        super.repository.save(user);
+    }
+
+    @Autowired
+    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 }
