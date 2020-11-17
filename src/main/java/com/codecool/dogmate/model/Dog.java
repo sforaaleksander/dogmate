@@ -3,6 +3,8 @@ package com.codecool.dogmate.model;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
 
@@ -14,22 +16,29 @@ public class Dog implements Indexable<Long>, Archivable {
     private Long id;
 
     @Column(nullable = false, length = 50)
+    @Size(min = 3, max = 50)
+    @NotNull
     private String name;
 
     @Column(nullable = false)
+    @NotNull
     private boolean isMale;
 
     @Column(nullable = false)
     @CreationTimestamp
+    @NotNull
     private Date dateOfBirth;
 
     @Column(columnDefinition = "boolean default true")
+    @NotNull
     private boolean isDefaultDog = true;
 
     @ManyToOne
+    @NotNull
     private Breed breed;
 
     @ManyToOne
+    @NotNull
     private Temper temper;
 
     @Column(columnDefinition = "boolean default false", nullable = false)

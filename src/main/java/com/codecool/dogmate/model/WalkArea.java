@@ -1,6 +1,7 @@
 package com.codecool.dogmate.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity(name = "walk_areas")
 public class WalkArea implements Indexable<Long>, Archivable {
@@ -10,6 +11,7 @@ public class WalkArea implements Indexable<Long>, Archivable {
     private Long id;
 
     @Column(nullable = false, length = 50)
+    @Size(min = 3, max = 50)
     private String name;
 
     @Column(columnDefinition = "boolean default true", nullable = false)
