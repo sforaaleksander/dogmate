@@ -1,5 +1,7 @@
 package com.codecool.dogmate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Blob;
 import java.util.Set;
@@ -28,7 +30,7 @@ public class User implements Indexable<Long>, Archivable {
     @Lob
     private Blob avatar;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private UserType userType;
 
     @OneToMany
@@ -82,5 +84,14 @@ public class User implements Indexable<Long>, Archivable {
     @Override
     public void setActive(Boolean active) {
         this.isActive = active;
+    }
+
+    @JsonIgnore
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
