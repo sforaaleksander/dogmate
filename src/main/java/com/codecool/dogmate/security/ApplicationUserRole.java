@@ -10,7 +10,33 @@ import static com.codecool.dogmate.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
     USER(Sets.newHashSet()),
-    ADMIN(Sets.newHashSet(COURSE_READ, COURSE_WRITE, STUDENT_READ, STUDENT_WRITE));
+    PREMIUM_USER(Sets.newHashSet()),
+    ADMIN(Sets.newHashSet(BREED_READ,
+            BREED_WRITE,
+            COORDINATES_READ,
+            COORDINATES_WRITE,
+            DOG_READ,
+            DOG_WRITE,
+            FRIENDS_READ,
+            FRIENDS_WRITE,
+            LOGIN_ATTEMPT_READ,
+            LOGIN_ATTEMPT_WRITE,
+            MESSAGE_READ,
+            MESSAGE_WRITE,
+            SESSION_READ,
+            SESSION_WRITE,
+            TEMPER_READ,
+            TEMPER_WRITE,
+            USER_READ,
+            USER_WRITE,
+            WALK_READ,
+            WALK_WRITE,
+            WALK_AREA_READ,
+            WALK_AREA_WRITE,
+            WALK_STATUS_READ,
+            WALK_STATUS_WRITE,
+            USER_TYPE_READ,
+            USER_TYPE_WRITE));
 
     private final Set<ApplicationUserPermission> permissions;
 
