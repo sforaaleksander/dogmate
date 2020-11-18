@@ -1,6 +1,7 @@
 package com.codecool.dogmate.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -41,12 +42,14 @@ public class User implements Indexable<Long>, Archivable {
     @Lob
     private Blob avatar;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value = "id")
     private UserType userType;
 
     @OneToMany
     @JoinTable(joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "dog_id"))
+    @JsonIgnoreProperties(value = {"id", "walks"})
     private Set<Dog> dogs;
 
     public User(String name, String email, String password, String about, Blob avatar, UserType userType) {
@@ -59,6 +62,10 @@ public class User implements Indexable<Long>, Archivable {
     }
 
     public User() {
+    }
+
+    public Set<Dog> getDogs() {
+        return dogs;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.codecool.dogmate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
@@ -21,6 +23,7 @@ public class Walk implements Indexable<Long>, Archivable {
 
     @ManyToOne
     @NotNull
+    @JsonIgnoreProperties(value = "id")
     private WalkArea walkArea;
 
     @ManyToOne

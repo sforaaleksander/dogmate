@@ -1,5 +1,7 @@
 package com.codecool.dogmate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -21,6 +23,7 @@ public class Coordinates implements Indexable<Long> {
 
     @ManyToOne
     @NotNull
+    @JsonIgnoreProperties(value = "id")
     private WalkArea walkArea;
 
     public Coordinates(BigDecimal longitude, BigDecimal latitude, WalkArea walkArea) {

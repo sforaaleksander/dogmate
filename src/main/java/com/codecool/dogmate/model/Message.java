@@ -1,5 +1,6 @@
 package com.codecool.dogmate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -15,10 +16,12 @@ public class Message implements Indexable<Long> {
 
     @ManyToOne
     @NotNull
+    @JsonIgnoreProperties(value = "id")
     private User sender;
 
     @ManyToOne
     @NotNull
+    @JsonIgnoreProperties(value = "id")
     private User recipient;
 
     @Column(nullable = false)

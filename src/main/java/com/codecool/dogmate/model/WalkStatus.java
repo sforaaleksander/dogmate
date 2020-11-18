@@ -10,7 +10,6 @@ public class WalkStatus implements Indexable<Long> {
     private Long id;
 
     @Column(nullable = false, length = 50)
-    //@Enumerated(EnumType.ORDINAL)
     private String name;
 
     WalkStatus(String name) {

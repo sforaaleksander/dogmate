@@ -1,5 +1,7 @@
 package com.codecool.dogmate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -11,6 +13,7 @@ public class Session implements Indexable<String> {
     private String id;
 
     @ManyToOne
+    @JsonIgnoreProperties(value = "id")
     private User user;
 
     @Column(nullable = false)
@@ -20,6 +23,7 @@ public class Session implements Indexable<String> {
     private Timestamp endTime;
 
     @OneToOne
+    @JsonIgnoreProperties(value = "id")
     private LoginAttempt loginAttempt;
 
     public Session(String id, User user, Timestamp startTime, Timestamp endTime, LoginAttempt loginAttempt) {

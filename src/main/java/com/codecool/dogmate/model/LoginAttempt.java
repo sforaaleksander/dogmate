@@ -1,5 +1,7 @@
 package com.codecool.dogmate.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -11,6 +13,7 @@ public class LoginAttempt implements Indexable<Long> {
     private Long id;
 
     @ManyToOne
+    @JsonIgnoreProperties(value = "id")
     private User user;
 
     @Column(nullable = false)
