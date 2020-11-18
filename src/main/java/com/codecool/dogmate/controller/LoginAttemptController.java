@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("${api.endpoint}/login-attempts")
-public class LoginAttemptController extends GenericController<LoginAttempt, Long> {
+public class LoginAttemptController extends CommonAccessGenericController<LoginAttempt, Long> {
 
     @Autowired
     LoginAttemptController(LoginAttemptService loginAttemptService) {

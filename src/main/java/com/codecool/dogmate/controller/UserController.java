@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("${api.endpoint}/users")
-public class UserController extends GenericController<User, Long> {
+public class UserController extends CommonAccessGenericController<User, Long> {
 
     @Autowired
     UserController(UserService userService) {

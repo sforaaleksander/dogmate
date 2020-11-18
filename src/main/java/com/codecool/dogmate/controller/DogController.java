@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("${api.endpoint}/dogs")
-public class DogController extends GenericController<Dog, Long> {
+public class DogController extends CommonAccessGenericController<Dog, Long> {
 
     @Autowired
     DogController(DogService dogService) {
