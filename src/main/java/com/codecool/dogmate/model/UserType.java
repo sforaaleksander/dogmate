@@ -19,10 +19,6 @@ public class UserType implements Indexable<Long> {
     public UserType() {
     }
 
-    public enum WalkStatusEnum {
-        ADMIN, USER
-    }
-
     @Override
     public Long getId() {
         return this.id;
@@ -35,5 +31,9 @@ public class UserType implements Indexable<Long> {
 
     public String getName() {
         return name;
+    }
+
+    public enum UserTypeEnum {
+        ADMIN, USER
     }
 }

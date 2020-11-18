@@ -8,14 +8,14 @@ import com.codecool.dogmate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class UserService extends GenericService<User, Long> {
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     UserService(UserRepository repository) {
@@ -35,13 +35,13 @@ public class UserService extends GenericService<User, Long> {
     }
 
     @Override
-    public void insert(User user){
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    public void insert(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         super.repository.save(user);
     }
 
     @Autowired
-    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserCredentialService implements UserDetailsService {
     private UserRepository userRepository;
@@ -18,11 +20,11 @@ public class UserCredentialService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = this.userRepository.findByEmail(email);
-        if (user == null) {
+        Optional<User> user = this.userRepository.findByEmail(email);
+        if (user.isEmpty()) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new UserCredential(user);
+        return new UserCredential(user.get());
     }
 
 }
