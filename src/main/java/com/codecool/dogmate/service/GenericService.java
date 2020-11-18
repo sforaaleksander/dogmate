@@ -32,13 +32,6 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
         throw new NotFoundException();
     }
 
-    public void removeById(ID id) {
-        T t = getById(id);
-
-        ((Archivable) t).setActive(false);
-        repository.save(t);
-    }
-
     public void update(T newObject, ID id) {
         if (!repository.existsById(id)) throw new NotFoundException();
 

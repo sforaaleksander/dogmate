@@ -7,7 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID> {
-    private final GenericService<T, ID> service;
+    protected final GenericService<T, ID> service;
 
     CommonAccessGenericController(GenericService<T, ID> service) {
         this.service = service;
@@ -27,13 +27,6 @@ public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID>
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_PREMIUM_USER')")
     public T getById(@PathVariable ID id) {
         return service.getById(id);
-    }
-
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_PREMIUM_USER')")
-    public void deleteById(@PathVariable ID id) {
-        service.removeById(id);
     }
 
     @PutMapping(value = "/{id}")
