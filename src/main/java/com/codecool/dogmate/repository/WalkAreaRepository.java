@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WalkAreaRepository extends FilterActivePagingAndSortingRepository<WalkArea, Long> {
-    Iterable<WalkArea> findAllByIsActiveTrue();
 }

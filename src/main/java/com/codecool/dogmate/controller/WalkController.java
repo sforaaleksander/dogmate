@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/walks")
-public class WalkController extends GenericController<Walk, Long> {
+@RequestMapping("${api.endpoint}/walks")
+public class WalkController extends CommonAccessGenericController<Walk, Long> {
 
     @Autowired
     WalkController(WalkService walkService) {

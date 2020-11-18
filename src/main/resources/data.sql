@@ -1,6 +1,6 @@
-INSERT INTO PUBLIC.USER_TYPES (ID, NAME) VALUES (1, 'User');
-INSERT INTO PUBLIC.USER_TYPES (ID, NAME) VALUES (2, 'Admin');
-INSERT INTO PUBLIC.USER_TYPES (ID, NAME) VALUES (3, 'Premium User');
+INSERT INTO PUBLIC.USER_TYPES (ID, NAME) VALUES (1, 'USER');
+INSERT INTO PUBLIC.USER_TYPES (ID, NAME) VALUES (2, 'ADMIN');
+INSERT INTO PUBLIC.USER_TYPES (ID, NAME) VALUES (3, 'PREMIUM_USER');
 
 insert into TEMPERS(NAME) values ('aggressive');
 insert into TEMPERS(NAME) values ('dominant');
@@ -367,9 +367,9 @@ INSERT INTO PUBLIC.BREEDS (NAME) VALUES ('ESTONIAN HOUND');
 INSERT INTO PUBLIC.BREEDS (NAME) VALUES ('MINIATURE AMERICAN SHEPHERD');
 INSERT INTO PUBLIC.BREEDS (NAME) VALUES ('DACHSHUND');
 
-INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (1, 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.', null, 'agaiter0@nyu.edu', true, 'Amalee', 'QKuboP1s2GCs', 1);
-INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (2, 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', null, 'jarnaldi1@chicagotribune.com', true, 'Jemimah', 'qkLUihIgJ', 1);
-INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (3, 'In hac habitasse platea dictumst.', null, 'bdungay2@posterous.com', true, 'Basil', 'qHMEJLnrdoB', 1);
+INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (1, 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.', null, 'agaiter0@nyu.edu', false, 'Amalee', 'QKuboP1s2GCs', 1);
+INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (2, 'Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', null, 'admin@admin.com', true, 'admin', '$2a$10$yIk0gA40yhcvyuGmTOyGxemCw3CIRFv5x.SEMoSZTYqlCO4TYxSpm', 2);
+INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (3, 'In hac habitasse platea dictumst.', null, 'user@user.com', true, 'user', '$2a$10$KA7a23sgLPlcRbL0/Fs7ruN6fm30VPM4fJXpM8Pe5Pn5nb.cfOwhW', 1);
 INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (4, 'Morbi quis tortor id nulla ultrices aliquet.', null, 'spartrick3@odnoklassniki.ru', true, 'Shirlee', 'dDK2tCK', 1);
 INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (5, 'Cras in purus eu magna vulputate luctus.', null, 'kculbert4@japanpost.jp', true, 'Karrie', '5HScl0kbQVA', 1);
 INSERT INTO PUBLIC.USERS (ID, ABOUT, AVATAR, EMAIL, IS_ACTIVE, NAME, PASSWORD, USER_TYPE_ID) VALUES (6, 'Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.', null, 'cdyball5@scientificamerican.com', true, 'Carmine', 'JNgSFj65aN', 1);

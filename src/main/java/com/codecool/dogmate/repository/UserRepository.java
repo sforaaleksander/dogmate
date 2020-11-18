@@ -4,8 +4,9 @@ import com.codecool.dogmate.model.User;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends FilterActivePagingAndSortingRepository<User, Long> {
-
-    Iterable<User> findAllByIsActiveTrue();
+    Optional<User> findByEmail(String email);
 }

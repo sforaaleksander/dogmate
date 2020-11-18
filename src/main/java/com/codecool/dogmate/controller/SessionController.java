@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/sessions")
-public class SessionController extends GenericController<Session, String> {
+@RequestMapping("${api.endpoint}/sessions")
+public class SessionController extends RestrictedAccessGenericController<Session, String> {
 
     @Autowired
     SessionController(SessionService sessionService) {

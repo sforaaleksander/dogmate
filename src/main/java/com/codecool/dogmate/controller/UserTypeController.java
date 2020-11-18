@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user-types")
-public class UserTypeController extends GenericController<UserType, Long> {
+@RequestMapping("${api.endpoint}/user-types")
+public class UserTypeController extends RestrictedAccessGenericController<UserType, Long> {
 
     @Autowired
     UserTypeController(UserTypeService userTypeService) {
