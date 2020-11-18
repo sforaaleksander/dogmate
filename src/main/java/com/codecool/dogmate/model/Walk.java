@@ -1,6 +1,7 @@
 package com.codecool.dogmate.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity(name = "walks")
@@ -11,15 +12,19 @@ public class Walk implements Indexable<Long>, Archivable {
     private Long id;
 
     @Column(nullable = false)
+    @NotNull
     private Integer duration;
 
     @Column(nullable = false)
+    @NotNull
     private Timestamp startTime;
 
     @ManyToOne
+    @NotNull
     private WalkArea walkArea;
 
     @ManyToOne
+    @NotNull
     private WalkStatus walkStatus;
 
     @Column(columnDefinition = "boolean default true", nullable = false)
@@ -29,6 +34,7 @@ public class Walk implements Indexable<Long>, Archivable {
     private Boolean isActive = true;
 
     @ManyToOne
+    @NotNull
     private User user;
 
     public Walk(Integer duration, Timestamp startTime, WalkArea walkArea, WalkStatus walkStatus) {

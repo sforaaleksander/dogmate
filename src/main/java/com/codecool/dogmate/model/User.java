@@ -3,6 +3,10 @@ package com.codecool.dogmate.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.sql.Blob;
 import java.util.Set;
 
@@ -14,15 +18,22 @@ public class User implements Indexable<Long>, Archivable {
     private Long id;
 
     @Column(nullable = false, length = 50)
+    @Size(min = 3, max = 50)
+    @NotNull
     private String name;
 
     @Column(nullable = false, length = 50)
+    @Size(min = 3, max = 50)
+    @NotNull
+    @Email
     private String email;
 
     @Column(columnDefinition = "boolean default true")
     private boolean isActive = true;
 
     @Column(nullable = false)
+    @Min(5)
+    @NotNull
     private String password;
 
     private String about;

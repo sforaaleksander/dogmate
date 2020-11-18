@@ -1,6 +1,7 @@
 package com.codecool.dogmate.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
@@ -11,12 +12,15 @@ public class Coordinates implements Indexable<Long> {
     private Long id;
 
     @Column(nullable = false, precision = 9, scale = 6)
+    @NotNull
     private BigDecimal longitude;
 
     @Column(nullable = false, precision = 8, scale = 6)
+    @NotNull
     private BigDecimal latitude;
 
     @ManyToOne
+    @NotNull
     private WalkArea walkArea;
 
     public Coordinates(BigDecimal longitude, BigDecimal latitude, WalkArea walkArea) {
