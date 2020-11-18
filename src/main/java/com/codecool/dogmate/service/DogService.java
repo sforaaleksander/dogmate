@@ -23,7 +23,7 @@ public class DogService extends GenericService<Dog, Long> {
     @Override
     public Dog getById(Long id) {
         Optional<Dog> optional = repository.findById(id);
-        if (optional.isPresent() && ((Archivable) optional.get()).getActive()) return optional.get();
+        if (optional.isPresent() && optional.get().getActive()) return optional.get();
         throw new NotFoundException();
     }
 
