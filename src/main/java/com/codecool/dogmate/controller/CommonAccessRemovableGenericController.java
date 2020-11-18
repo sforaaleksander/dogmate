@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-public class CommonAccessRemovableGenericController<T extends Indexable<ID> & Archivable, ID> extends CommonAccessGenericController<T, ID> {
-
+public abstract class CommonAccessRemovableGenericController<T extends Indexable<ID> & Archivable, ID> extends CommonAccessGenericController<T, ID> {
     private final GenericRemovableService<T, ID> service;
 
     CommonAccessRemovableGenericController(GenericRemovableService<T, ID> service) {

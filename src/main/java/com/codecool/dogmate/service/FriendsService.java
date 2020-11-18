@@ -51,12 +51,9 @@ public class FriendsService extends GenericService<Friends, FriendsKey> {
     @Override
     public void update(Friends newObject, FriendsKey friendsKey) {
         FriendsKey friendsKey1 = new FriendsKey(friendsKey.getRelatedUserId(), friendsKey.getRelatingUserId());
-
         if (!repository.existsById(friendsKey) && !repository.existsById(friendsKey1)) throw new NotFoundException();
-
         Friends old = getById(friendsKey);
         if (old == null) old = getById(friendsKey1);
-
         old.setId(friendsKey);
         old.setAccepted(newObject.isAccepted());
         repository.save(newObject);
@@ -64,9 +61,6 @@ public class FriendsService extends GenericService<Friends, FriendsKey> {
 
     @Override
     public void insert(Friends object) {
-//        if (!((Validable) object).isValid()) {
-//            throw new UnprocessableEntityException("invalid data provided");
-//        }
         repository.save(object);
     }
 
@@ -76,7 +70,6 @@ public class FriendsService extends GenericService<Friends, FriendsKey> {
         return optional.orElse(null);
     }
 
-    @Override
     public void removeById(FriendsKey friendsKey) {
         FriendsKey friendsKey1 = new FriendsKey(friendsKey.getRelatedUserId(), friendsKey.getRelatingUserId());
 

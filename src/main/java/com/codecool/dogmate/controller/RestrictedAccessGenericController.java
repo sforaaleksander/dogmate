@@ -29,13 +29,6 @@ public abstract class RestrictedAccessGenericController<T extends Indexable<ID>,
         return service.getById(id);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "/{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void deleteById(@PathVariable ID id) {
-        service.removeById(id);
-    }
-
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void update(@RequestBody T newObject, @PathVariable ID id) {
