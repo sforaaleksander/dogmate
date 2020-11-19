@@ -41,4 +41,3 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
         repository.save(object);
     }
 }
-
