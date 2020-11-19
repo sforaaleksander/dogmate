@@ -1,6 +1,8 @@
 package com.codecool.dogmate.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity(name = "breeds")
 public class Breed implements Indexable<Long> {
@@ -10,6 +12,8 @@ public class Breed implements Indexable<Long> {
     private Long id;
 
     @Column(nullable = false, length = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
     private String name;
 
     public Breed(String name) {
