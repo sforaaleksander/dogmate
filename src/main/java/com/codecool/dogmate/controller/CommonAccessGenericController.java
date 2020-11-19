@@ -1,10 +1,14 @@
 package com.codecool.dogmate.controller;
 
+import com.codecool.dogmate.exception.UnprocessableEntityException;
 import com.codecool.dogmate.model.Indexable;
 import com.codecool.dogmate.service.GenericService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID> {
     protected final GenericService<T, ID> service;
@@ -31,14 +35,20 @@ public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID>
 
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_PREMIUM_USER')")
-    public void update(@RequestBody T newObject, @PathVariable ID id) {
+    public void update(@RequestBody @ModelAttribute @Valid T newObject, Errors errors, @PathVariable ID id) {
+        if (errors.hasErrors()) {
+            throw new UnprocessableEntityException();
+        }
         service.update(newObject, id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_PREMIUM_USER')")
-    public void insert(@RequestBody T entity) {
+    public void insert(@RequestBody @ModelAttribute @Valid T entity, Errors errors) {
+        if (errors.hasErrors()) {
+            throw new UnprocessableEntityException();
+        }
         service.insert(entity);
     }
 }
