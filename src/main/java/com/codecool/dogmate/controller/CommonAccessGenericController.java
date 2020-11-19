@@ -35,7 +35,7 @@ public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID>
 
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_PREMIUM_USER')")
-    public void update(@RequestBody @ModelAttribute @Valid T newObject, Errors errors, @PathVariable ID id) {
+    public void update(@RequestBody @Valid T newObject, Errors errors, @PathVariable ID id) {
         if (errors.hasErrors()) {
             throw new UnprocessableEntityException();
         }
@@ -45,7 +45,7 @@ public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID>
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_PREMIUM_USER')")
-    public void insert(@RequestBody @ModelAttribute @Valid T entity, Errors errors) {
+    public void insert(@RequestBody @Valid T entity, Errors errors) {
         if (errors.hasErrors()) {
             throw new UnprocessableEntityException();
         }
