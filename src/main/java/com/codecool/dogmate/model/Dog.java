@@ -1,5 +1,6 @@
 package com.codecool.dogmate.model;
 
+import com.codecool.dogmate.converter.DogTempersConverter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
@@ -41,10 +42,8 @@ public class Dog implements Indexable<Long>, Archivable {
     @JsonIgnoreProperties(value = "id")
     private Breed breed;
 
-    @ManyToOne
-    @NotNull
-    @JsonIgnoreProperties(value = "id")
-    private Temper temper;
+    @Convert(converter = DogTempersConverter.class)
+    private DogTempers temperId;
 
     @Column(columnDefinition = "boolean default false", nullable = false)
     private Boolean isNeutered = false;
@@ -57,12 +56,12 @@ public class Dog implements Indexable<Long>, Archivable {
             inverseJoinColumns = @JoinColumn(name = "walk_id"))
     private Set<Walk> walks;
 
-    public Dog(String name, boolean isMale, Date dateOfBirth, Breed breed, Temper temper, Boolean isNeutered) {
+    public Dog(String name, boolean isMale, Date dateOfBirth, Breed breed, DogTempers temperId, Boolean isNeutered) {
         this.name = name;
         this.isMale = isMale;
         this.dateOfBirth = dateOfBirth;
         this.breed = breed;
-        this.temper = temper;
+        this.temperId = temperId;
         this.isNeutered = isNeutered;
     }
 
@@ -119,12 +118,12 @@ public class Dog implements Indexable<Long>, Archivable {
         this.breed = breed;
     }
 
-    public Temper getTemper() {
-        return temper;
+    public DogTempers getTemperId() {
+        return temperId;
     }
 
-    public void setTemper(Temper temper) {
-        this.temper = temper;
+    public void setTemperId(DogTempers temperId) {
+        this.temperId = temperId;
     }
 
     public Boolean getActive() {
