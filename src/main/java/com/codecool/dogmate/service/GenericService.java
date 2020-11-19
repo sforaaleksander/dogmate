@@ -1,10 +1,7 @@
 package com.codecool.dogmate.service;
 
 import com.codecool.dogmate.exception.NotFoundException;
-import com.codecool.dogmate.exception.UnprocessableEntityException;
-import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.Indexable;
-import com.codecool.dogmate.model.Validable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -44,4 +41,3 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
         repository.save(object);
     }
 }
-
