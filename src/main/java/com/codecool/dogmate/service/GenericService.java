@@ -19,10 +19,6 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
         return repository.findAll(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 
-    private String getEntityName() {
-        return this.getClass().getSimpleName().replace("Service", "");
-    }
-
     public T getById(ID id) {
         Optional<T> optional = repository.findById(id);
         if (optional.isPresent()) return optional.get();
