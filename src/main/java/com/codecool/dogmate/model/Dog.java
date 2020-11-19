@@ -2,8 +2,6 @@ package com.codecool.dogmate.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -31,7 +29,7 @@ public class Dog implements Indexable<Long>, Archivable {
     @Column(nullable = false)
     @CreatedDate
     @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
     @Column(columnDefinition = "boolean default true")
