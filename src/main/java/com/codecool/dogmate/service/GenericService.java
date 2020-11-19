@@ -41,9 +41,6 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
 
     public void insert(T object) {
         object.setId(null);
-        if (!((Validable) object).isValid()) {
-            throw new UnprocessableEntityException("invalid data provided");
-        }
         repository.save(object);
     }
 }
