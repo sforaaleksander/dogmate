@@ -24,3 +24,4 @@ public abstract class CommonAccessRemovableGenericController<T extends Indexable
         service.removeById(id);
     }
 }
+// todo package management
