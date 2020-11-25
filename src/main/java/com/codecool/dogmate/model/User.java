@@ -44,7 +44,8 @@ public class User implements Indexable<Long>, Archivable {
 
     @Column(name = "home_location")
     @ManyToOne
-//    @JsonIgnore
+    @NotNull
+    @JsonIgnoreProperties(value = "id")
     private Coordinates homeLocation;
 
     @ManyToOne(cascade = CascadeType.ALL)
