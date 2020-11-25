@@ -42,6 +42,11 @@ public class User implements Indexable<Long>, Archivable {
     @Lob
     private Blob avatar;
 
+    @Column(name = "home_location")
+    @ManyToOne
+//    @JsonIgnore
+    private Coordinates homeLocation;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "id")
     private UserType userType;
@@ -111,5 +116,13 @@ public class User implements Indexable<Long>, Archivable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Coordinates getHomeLocation() {
+        return homeLocation;
+    }
+
+    public void setHomeLocation(Coordinates homeLocation) {
+        this.homeLocation = homeLocation;
     }
 }
