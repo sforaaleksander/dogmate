@@ -42,10 +42,11 @@ public class User implements Indexable<Long>, Archivable {
     @Lob
     private Blob avatar;
 
-    @Column(name = "home_location")
+
     @ManyToOne
     @NotNull
     @JsonIgnoreProperties(value = "id")
+    //@Column(name = "home_location")
     private Coordinates homeLocation;
 
     @ManyToOne(cascade = CascadeType.ALL)
