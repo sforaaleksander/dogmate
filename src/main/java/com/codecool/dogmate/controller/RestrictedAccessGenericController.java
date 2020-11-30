@@ -35,7 +35,7 @@ public abstract class RestrictedAccessGenericController<T extends Indexable<ID>,
 
     @PutMapping(value = "/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void update(@RequestBody @ModelAttribute @Valid T newObject, Errors errors, @PathVariable ID id) {
+    public void update(@RequestBody @Valid T newObject, Errors errors, @PathVariable ID id) {
         if (errors.hasErrors()) {
             throw new UnprocessableEntityException();
         }
@@ -45,7 +45,7 @@ public abstract class RestrictedAccessGenericController<T extends Indexable<ID>,
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void insert(@RequestBody @ModelAttribute @Valid T entity, Errors errors) {
+    public void insert(@RequestBody @Valid T entity, Errors errors) {
         if (errors.hasErrors()) {
             throw new UnprocessableEntityException();
         }

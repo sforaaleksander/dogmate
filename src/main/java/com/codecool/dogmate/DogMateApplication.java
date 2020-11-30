@@ -21,6 +21,8 @@ public class DogMateApplication {
         SpringApplication.run(DogMateApplication.class, args);
     }
 
+    // TODO implement CORS
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
