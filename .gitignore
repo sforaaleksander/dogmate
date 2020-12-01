@@ -8,6 +8,7 @@ mvnw.cmd
 FriendsSqlInsertsGenerator.java
 CoordinatesInsertsGenerator.java
 AbstractInsertsGenerator.java
+src/main/resources/img/
 
 ### STS ###
 .apt_generated
