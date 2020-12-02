@@ -18,7 +18,6 @@ public class User implements Indexable<Long>, Archivable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 50)
     @Size(min = 3, max = 50)
     @NotNull
     private String name;
@@ -94,6 +93,10 @@ public class User implements Indexable<Long>, Archivable {
         return userType;
     }
 
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
     @Override
     public Boolean getActive() {
         return isActive;
@@ -104,7 +107,7 @@ public class User implements Indexable<Long>, Archivable {
         this.isActive = active;
     }
 
-    @JsonIgnore
+//    @JsonIgnore //must be commented to permit post with new user
     public String getPassword() {
         return password;
     }
