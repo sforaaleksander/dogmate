@@ -69,7 +69,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         configuration.applyPermitDefaultValues();
         configuration.setAllowCredentials(true);
         configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
-        configuration.setExposedHeaders(Collections.singletonList("Authorization"));
+        configuration.setExposedHeaders(Arrays.asList("Authorization", "content-type", "x-auth-token"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+//        configuration.setExposedHeaders(Collections.singletonList("x-auth-token"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
@@ -78,6 +80,25 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/api/v1/**", configuration);
         return source;
     }
+
+//    @Bean
+//    CorsConfigurationSource corsConfigurationSource() {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//        configuration.applyPermitDefaultValues();
+//        configuration.setAllowCredentials(true);
+//        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
+//        configuration.setExposedHeaders(Arrays.asList("Authorization", "content-type", "x-auth-token"));
+//
+//        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+//        configuration.setExposedHeaders(Collections.singletonList("x-auth-token"));
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//
+//        source.registerCorsConfiguration("/login", configuration);
+//        source.registerCorsConfiguration("/register", configuration);
+//        source.registerCorsConfiguration("/api/v1/**", configuration);
+//        return source;
+//    }
 
     @Override
     public void configure(WebSecurity web) {
