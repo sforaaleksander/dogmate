@@ -34,7 +34,8 @@ public class UserController extends CommonAccessRemovableGenericController<User,
     }
 
     @Override
-    public void specificUpdate(User original, User updated) {
+    public User specificUpdate(User original, User updated) {
         //TODO implement
+        return null;
     }
 }

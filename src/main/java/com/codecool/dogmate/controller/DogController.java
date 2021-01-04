@@ -18,7 +18,7 @@ public class DogController extends CommonAccessRemovableGenericController<Dog, L
     }
 
     @Override
-    public void specificUpdate(Dog original, Dog updated) {
+    public Dog specificUpdate(Dog original, Dog updated) {
         if (updated.getName() != null) {
             original.setName(updated.getName());
         }
@@ -43,6 +43,6 @@ public class DogController extends CommonAccessRemovableGenericController<Dog, L
         if (updated.isNeutered() != null) {
             original.setNeutered(updated.isNeutered());
         }
-
+        return original;
     }
 }

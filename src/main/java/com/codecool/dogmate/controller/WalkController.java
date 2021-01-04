@@ -16,7 +16,8 @@ public class WalkController extends CommonAccessRemovableGenericController<Walk,
     }
 
     @Override
-    public void specificUpdate(Walk original, Walk updated) {
+    public Walk specificUpdate(Walk original, Walk updated) {
         //TODO implement
+        return null;
     }
 }

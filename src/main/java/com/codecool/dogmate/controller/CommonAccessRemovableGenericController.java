@@ -26,14 +26,15 @@ public abstract class CommonAccessRemovableGenericController<T extends Indexable
     @PatchMapping(value = "/{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_PREMIUM_USER')")
     @ResponseStatus(value = HttpStatus.NO_CONTENT, reason = "Dog partially updated")
-    public void partialUpdate(@RequestBody T updated, @PathVariable ID id) {
+    public void partialUpdate(@RequestBody T updates, @PathVariable ID id) {
         T object = service.getById(id);
         if (object == null) {
             return;
         }
-        specificUpdate(object, updated);
+        T objectUpdated = specificUpdate(object, updates);
+        service.update(objectUpdated, id);
     }
 
-    public abstract void specificUpdate(T original, T updated);
+    public abstract T specificUpdate(T original, T updates);
 }
 // todo package management
