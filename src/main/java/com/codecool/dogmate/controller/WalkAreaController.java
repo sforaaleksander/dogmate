@@ -14,4 +14,9 @@ public class WalkAreaController extends CommonAccessRemovableGenericController<W
     WalkAreaController(WalkAreaService walkAreaService) {
         super(walkAreaService);
     }
+
+    @Override
+    public void specificUpdate(WalkArea original, WalkArea updated) {
+        //TODO implement
+    }
 }

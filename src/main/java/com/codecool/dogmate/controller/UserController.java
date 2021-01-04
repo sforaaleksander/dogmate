@@ -32,4 +32,9 @@ public class UserController extends CommonAccessRemovableGenericController<User,
         }
         userService.insert(entity);
     }
+
+    @Override
+    public void specificUpdate(User original, User updated) {
+        //TODO implement
+    }
 }
