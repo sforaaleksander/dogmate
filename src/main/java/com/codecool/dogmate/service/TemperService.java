@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TemperService extends GenericService<Temper, Long> {
+public class TemperService extends GenericPagingAndSortingService<Temper, Long> {
 
     private final TemperCachingFactory temperCachingFactory;
 

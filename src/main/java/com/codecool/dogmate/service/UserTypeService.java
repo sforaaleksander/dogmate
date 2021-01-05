@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserTypeService extends GenericService<UserType, Long> {
+public class UserTypeService extends GenericPagingAndSortingService<UserType, Long> {
 
     @Autowired
     UserTypeService(UserTypeRepository repository) {

@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WalkStatusService extends GenericService<WalkStatus, Long> {
+public class WalkStatusService extends GenericPagingAndSortingService<WalkStatus, Long> {
 
     @Autowired
     WalkStatusService(WalkStatusRepository repository) {

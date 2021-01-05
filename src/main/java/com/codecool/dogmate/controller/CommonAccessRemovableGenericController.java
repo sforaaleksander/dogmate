@@ -2,15 +2,15 @@ package com.codecool.dogmate.controller;
 
 import com.codecool.dogmate.model.Archivable;
 import com.codecool.dogmate.model.Indexable;
-import com.codecool.dogmate.service.GenericRemovableService;
+import com.codecool.dogmate.service.GenericPagingAndSortingRemovableService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 public abstract class CommonAccessRemovableGenericController<T extends Indexable<ID> & Archivable, ID> extends CommonAccessGenericController<T, ID> {
-    private final GenericRemovableService<T, ID> service;
+    private final GenericPagingAndSortingRemovableService<T, ID> service;
 
-    CommonAccessRemovableGenericController(GenericRemovableService<T, ID> service) {
+    CommonAccessRemovableGenericController(GenericPagingAndSortingRemovableService<T, ID> service) {
         super(service);
         this.service = service;
     }

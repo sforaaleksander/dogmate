@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class WalkAreaService extends GenericRemovableService<WalkArea, Long> {
+public class WalkAreaService extends GenericPagingAndSortingRemovableService<WalkArea, Long> {
 
     @Autowired
     WalkAreaService(WalkAreaRepository repository) {

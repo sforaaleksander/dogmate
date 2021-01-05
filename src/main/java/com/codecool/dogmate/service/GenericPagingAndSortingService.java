@@ -8,10 +8,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.Optional;
 
-public abstract class GenericService<T extends Indexable<ID>, ID> {
+public abstract class GenericPagingAndSortingService<T extends Indexable<ID>, ID> {
     protected final PagingAndSortingRepository<T, ID> repository;
 
-    public GenericService(PagingAndSortingRepository<T, ID> repository) {
+    public GenericPagingAndSortingService(PagingAndSortingRepository<T, ID> repository) {
         this.repository = repository;
     }
 

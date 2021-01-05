@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SessionService extends GenericService<Session, String> {
+public class SessionService extends GenericPagingAndSortingService<Session, String> {
 
     @Autowired
     SessionService(SessionRepository repository) {

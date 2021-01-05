@@ -2,7 +2,7 @@ package com.codecool.dogmate.controller;
 
 import com.codecool.dogmate.exception.UnprocessableEntityException;
 import com.codecool.dogmate.model.Indexable;
-import com.codecool.dogmate.service.GenericService;
+import com.codecool.dogmate.service.GenericPagingAndSortingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.Errors;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID> {
-    protected final GenericService<T, ID> service;
+    protected final GenericPagingAndSortingService<T, ID> service;
 
-    CommonAccessGenericController(GenericService<T, ID> service) {
+    CommonAccessGenericController(GenericPagingAndSortingService<T, ID> service) {
         this.service = service;
     }
 
