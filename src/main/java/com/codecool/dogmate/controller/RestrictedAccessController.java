@@ -42,7 +42,7 @@ public abstract class RestrictedAccessController<T extends Indexable<ID>, ID> {
         service.insert(entity);
     }
 
-    @GetMapping
+    @GetMapping(params = { "type=allData" })
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_PREMIUM_USER')")
     public Iterable<T> getAll() {
         return service.getAll();
