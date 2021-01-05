@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("${api.endpoint}/tempers")
-public class TemperController extends RestrictedAccessPagingAndSortingGenericController<Temper, Long> {
+public class TemperController extends RestrictedAccessController<Temper, Long> {
 
     @Autowired
     TemperController(TemperService temperService) {
