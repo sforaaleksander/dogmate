@@ -35,7 +35,27 @@ public class UserController extends CommonAccessRemovableGenericController<User,
 
     @Override
     public User specificUpdate(User original, User updated) {
-        //TODO implement
-        return null;
+        if (updated.getName() != null) {
+            original.setName(updated.getName());
+        }
+        if (updated.getEmail() != null) {
+            original.setEmail(updated.getEmail());
+        }
+        if (updated.getActive() != null) {
+            original.setActive(updated.getActive());
+        }
+        if (updated.getPassword() != null) {
+            original.setPassword(updated.getPassword());
+        }
+        if (updated.getAbout() != null) {
+            original.setAbout(updated.getAbout());
+        }
+        if (updated.getAvatar() != null) {
+            original.setAvatar(updated.getAvatar());
+        }
+        if (updated.getDogs() != null) {
+            original.setDogs(updated.getDogs());
+        }
+        return original;
     }
 }
