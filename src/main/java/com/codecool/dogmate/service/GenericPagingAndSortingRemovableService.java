@@ -9,10 +9,10 @@ import org.springframework.data.domain.Sort;
 
 import java.util.Optional;
 
-public abstract class GenericRemovableService<T extends Indexable<ID> & Archivable, ID> extends GenericService<T, ID> {
+public abstract class GenericPagingAndSortingRemovableService<T extends Indexable<ID> & Archivable, ID> extends GenericPagingAndSortingService<T, ID> {
     protected final FilterActivePagingAndSortingRepository<T, ID> repository;
 
-    public GenericRemovableService(FilterActivePagingAndSortingRepository<T, ID> repository) {
+    public GenericPagingAndSortingRemovableService(FilterActivePagingAndSortingRepository<T, ID> repository) {
         super(repository);
         this.repository = repository;
     }
@@ -24,7 +24,7 @@ public abstract class GenericRemovableService<T extends Indexable<ID> & Archivab
     }
 
     @Override
-    public Iterable<T> getAll(Integer page, Integer size, String[] sortBy) {
+    public Iterable<T> getAllPagedAndSorted(Integer page, Integer size, String[] sortBy) {
         return repository.findAllByIsActiveTrue(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 

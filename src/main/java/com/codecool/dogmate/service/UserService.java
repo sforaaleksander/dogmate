@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService extends GenericRemovableService<User, Long> {
+public class UserService extends GenericPagingAndSortingRemovableService<User, Long> {
     private PasswordEncoder passwordEncoder;
 
     @Autowired

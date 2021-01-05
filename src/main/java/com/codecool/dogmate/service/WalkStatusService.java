@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WalkStatusService extends GenericService<WalkStatus, Long> {
+public class WalkStatusService extends GenericPagingAndSortingService<WalkStatus, Long> {
 
     @Autowired
     WalkStatusService(WalkStatusRepository repository) {
@@ -16,8 +16,8 @@ public class WalkStatusService extends GenericService<WalkStatus, Long> {
 
     @Override
     @Cacheable("walk_statuses")
-    public Iterable<WalkStatus> getAll(Integer page, Integer size, String[] sortBy) {
-        return super.getAll(page, size, sortBy);
+    public Iterable<WalkStatus> getAllPagedAndSorted(Integer page, Integer size, String[] sortBy) {
+        return super.getAllPagedAndSorted(page, size, sortBy);
     }
 
     @Override

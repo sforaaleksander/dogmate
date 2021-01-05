@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WalkService extends GenericRemovableService<Walk, Long> {
+public class WalkService extends GenericPagingAndSortingRemovableService<Walk, Long> {
 
     @Autowired
     WalkService(WalkRepository repository) {

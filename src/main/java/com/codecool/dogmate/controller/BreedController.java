@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("${api.endpoint}/breeds")
-public class BreedController extends RestrictedAccessGenericController<Breed, Long> {
+public class BreedController extends RestrictedAccessController<Breed, Long> {
 
     @Autowired
     BreedController(BreedService breedService) {

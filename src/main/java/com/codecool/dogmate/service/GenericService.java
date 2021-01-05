@@ -4,21 +4,20 @@ import com.codecool.dogmate.exception.NotFoundException;
 import com.codecool.dogmate.model.Indexable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
 public abstract class GenericService<T extends Indexable<ID>, ID> {
-    protected final PagingAndSortingRepository<T, ID> repository;
+    protected final CrudRepository<T, ID> repository;
 
-    public GenericService(PagingAndSortingRepository<T, ID> repository) {
+    protected GenericService(CrudRepository<T, ID> repository) {
         this.repository = repository;
     }
 
-    public Iterable<T> getAll(Integer page, Integer size, String[] sortBy) {
-        return repository.findAll(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
+    public Iterable<T> getAll() {
+        return repository.findAll();
     }
-
     public T getById(ID id) {
         Optional<T> optional = repository.findById(id);
         if (optional.isPresent()) return optional.get();
