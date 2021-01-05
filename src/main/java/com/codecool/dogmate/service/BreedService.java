@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BreedService extends GenericPagingAndSortingService<Breed, Long> {
+public class BreedService extends GenericService<Breed, Long> {
 
     @Autowired
     BreedService(BreedRepository repository) {
