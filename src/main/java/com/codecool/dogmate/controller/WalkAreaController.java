@@ -17,7 +17,12 @@ public class WalkAreaController extends CommonAccessRemovableGenericController<W
 
     @Override
     public WalkArea specificUpdate(WalkArea original, WalkArea updated) {
-        //TODO implement
-        return null;
+        if (updated.getName() != null) {
+            original.setName(updated.getName());
+        }
+        if (updated.getActive() != null) {
+            original.setActive(updated.getActive());
+        }
+        return original;
     }
 }
