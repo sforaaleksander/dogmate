@@ -13,7 +13,7 @@ public abstract class GenericPagingAndSortingService<T extends Indexable<ID>, ID
         this.repository = repository;
     }
 
-    public Iterable<T> getAll(Integer page, Integer size, String[] sortBy) {
+    public Iterable<T> getAllPagedAndSorted(Integer page, Integer size, String[] sortBy) {
         return repository.findAll(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 }

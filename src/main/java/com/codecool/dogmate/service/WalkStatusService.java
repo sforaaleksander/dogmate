@@ -16,8 +16,8 @@ public class WalkStatusService extends GenericPagingAndSortingService<WalkStatus
 
     @Override
     @Cacheable("walk_statuses")
-    public Iterable<WalkStatus> getAll(Integer page, Integer size, String[] sortBy) {
-        return super.getAll(page, size, sortBy);
+    public Iterable<WalkStatus> getAllPagedAndSorted(Integer page, Integer size, String[] sortBy) {
+        return super.getAllPagedAndSorted(page, size, sortBy);
     }
 
     @Override

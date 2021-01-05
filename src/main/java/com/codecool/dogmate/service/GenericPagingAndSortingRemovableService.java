@@ -24,7 +24,7 @@ public abstract class GenericPagingAndSortingRemovableService<T extends Indexabl
     }
 
     @Override
-    public Iterable<T> getAll(Integer page, Integer size, String[] sortBy) {
+    public Iterable<T> getAllPagedAndSorted(Integer page, Integer size, String[] sortBy) {
         return repository.findAllByIsActiveTrue(PageRequest.of(page, size, Sort.by(sortBy))).getContent();
     }
 

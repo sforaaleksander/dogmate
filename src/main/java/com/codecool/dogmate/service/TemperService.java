@@ -17,7 +17,7 @@ public class TemperService extends GenericPagingAndSortingService<Temper, Long> 
     }
 
     @Override
-    public Iterable<Temper> getAll(Integer page, Integer size, String[] sortBy) {
+    public Iterable<Temper> getAllPagedAndSorted(Integer page, Integer size, String[] sortBy) {
         return temperCachingFactory.getAllTempers();
     }
 

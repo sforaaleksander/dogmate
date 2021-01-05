@@ -32,7 +32,7 @@ public class FriendsController {
             @RequestParam(defaultValue = "10") Integer size,
             @RequestParam(defaultValue = "id") String... sortBy
     ) {
-        return friendsService.getAll(page, size, sortBy);
+        return friendsService.getAllPagedAndSorted(page, size, sortBy);
     }
 
     @GetMapping(value = "/{id}")

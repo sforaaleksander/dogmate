@@ -24,7 +24,7 @@ public abstract class CommonAccessGenericController<T extends Indexable<ID>, ID>
             @RequestParam(defaultValue = "10") Integer size,
             @RequestParam(defaultValue = "id") String... sortBy
             ) {
-        return service.getAll(page, size, sortBy);
+        return service.getAllPagedAndSorted(page, size, sortBy);
     }
 
     @GetMapping(value = "/{id}")

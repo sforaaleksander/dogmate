@@ -2,6 +2,8 @@ package com.codecool.dogmate.service;
 
 import com.codecool.dogmate.exception.NotFoundException;
 import com.codecool.dogmate.model.Indexable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
@@ -13,6 +15,9 @@ public abstract class GenericService<T extends Indexable<ID>, ID> {
         this.repository = repository;
     }
 
+    public Iterable<T> getAll() {
+        return repository.findAll();
+    }
     public T getById(ID id) {
         Optional<T> optional = repository.findById(id);
         if (optional.isPresent()) return optional.get();

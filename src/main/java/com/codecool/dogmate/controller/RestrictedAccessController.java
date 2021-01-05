@@ -2,7 +2,7 @@ package com.codecool.dogmate.controller;
 
 import com.codecool.dogmate.exception.UnprocessableEntityException;
 import com.codecool.dogmate.model.Indexable;
-import com.codecool.dogmate.service.GenericPagingAndSortingService;
+import com.codecool.dogmate.service.GenericService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.Errors;
@@ -10,21 +10,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-public abstract class RestrictedAccessGenericController<T extends Indexable<ID>, ID> {
-    private final GenericPagingAndSortingService<T, ID> service;
+public abstract class RestrictedAccessController<T extends Indexable<ID>, ID> {
+    private final GenericService<T, ID> service;
 
-    RestrictedAccessGenericController(GenericPagingAndSortingService<T, ID> service) {
+    public RestrictedAccessController(GenericService<T, ID> service) {
         this.service = service;
-    }
-
-    @GetMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_PREMIUM_USER')")
-    public Iterable<T> getAll(
-            @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "10") Integer size,
-            @RequestParam(defaultValue = "id") String... sortBy
-            ) {
-        return service.getAll(page, size, sortBy);
     }
 
     @GetMapping(value = "/{id}")
@@ -50,5 +40,11 @@ public abstract class RestrictedAccessGenericController<T extends Indexable<ID>,
             throw new UnprocessableEntityException();
         }
         service.insert(entity);
+    }
+
+    @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_PREMIUM_USER')")
+    public Iterable<T> getAll() {
+        return service.getAll();
     }
 }
