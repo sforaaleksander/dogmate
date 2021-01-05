@@ -81,6 +81,38 @@ public class User implements Indexable<Long>, Archivable {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public void setAvatar(Blob avatar) {
+        this.avatar = avatar;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public Blob getAvatar() {
+        return avatar;
+    }
+
+    public void setDogs(Set<Dog> dogs) {
+        this.dogs = dogs;
+    }
+
     public String getEmail() {
         return email;
     }

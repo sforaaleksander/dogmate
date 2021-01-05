@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserTypeService extends GenericService<UserType, Long> {
+public class UserTypeService extends GenericPagingAndSortingService<UserType, Long> {
 
     @Autowired
     UserTypeService(UserTypeRepository repository) {
@@ -16,8 +16,8 @@ public class UserTypeService extends GenericService<UserType, Long> {
 
     @Override
     @Cacheable("user_types")
-    public Iterable<UserType> getAll(Integer page, Integer size, String[] sortBy) {
-        return super.getAll(page, size, sortBy);
+    public Iterable<UserType> getAllPagedAndSorted(Integer page, Integer size, String[] sortBy) {
+        return super.getAllPagedAndSorted(page, size, sortBy);
     }
 
     @Override

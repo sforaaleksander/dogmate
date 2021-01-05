@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 @Service
-public class FriendsService extends GenericService<Friends, FriendsKey> {
+public class FriendsService extends GenericPagingAndSortingService<Friends, FriendsKey> {
 
     private final FriendsRepository repository;
     private final UserRepository userRepository;

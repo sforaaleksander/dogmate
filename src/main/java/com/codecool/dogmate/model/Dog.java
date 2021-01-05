@@ -24,7 +24,7 @@ public class Dog implements Indexable<Long>, Archivable {
 
     @Column(nullable = false)
     @NotNull
-    private boolean isMale;
+    private Boolean isMale;
 
     @Column(nullable = false)
     @CreatedDate
@@ -32,9 +32,9 @@ public class Dog implements Indexable<Long>, Archivable {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
-    @Column(columnDefinition = "boolean default true")
+    @Column(columnDefinition = "Boolean default true")
     @NotNull
-    private boolean isDefaultDog = true;
+    private Boolean isDefaultDog = true;
 
     @ManyToOne
     @NotNull
@@ -46,10 +46,10 @@ public class Dog implements Indexable<Long>, Archivable {
     @JsonIgnoreProperties(value = "id")
     private Temper temper;
 
-    @Column(columnDefinition = "boolean default false", nullable = false)
+    @Column(columnDefinition = "Boolean default false", nullable = false)
     private Boolean isNeutered = false;
 
-    @Column(columnDefinition = "boolean default true", nullable = false)
+    @Column(columnDefinition = "Boolean default true", nullable = false)
     private Boolean isActive = true;
 
     @OneToMany
@@ -57,7 +57,7 @@ public class Dog implements Indexable<Long>, Archivable {
             inverseJoinColumns = @JoinColumn(name = "walk_id"))
     private Set<Walk> walks;
 
-    public Dog(String name, boolean isMale, Date dateOfBirth, Breed breed, Temper temper, Boolean isNeutered) {
+    public Dog(String name, Boolean isMale, Date dateOfBirth, Breed breed, Temper temper, Boolean isNeutered) {
         this.name = name;
         this.isMale = isMale;
         this.dateOfBirth = dateOfBirth;
@@ -87,11 +87,11 @@ public class Dog implements Indexable<Long>, Archivable {
         this.name = name;
     }
 
-    public boolean isMale() {
+    public Boolean isMale() {
         return isMale;
     }
 
-    public void setMale(boolean male) {
+    public void setMale(Boolean male) {
         isMale = male;
     }
 
@@ -103,11 +103,11 @@ public class Dog implements Indexable<Long>, Archivable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isDefaultDog() {
+    public Boolean isDefaultDog() {
         return isDefaultDog;
     }
 
-    public void setDefaultDog(boolean defaultDog) {
+    public void setDefaultDog(Boolean defaultDog) {
         isDefaultDog = defaultDog;
     }
 
@@ -143,11 +143,11 @@ public class Dog implements Indexable<Long>, Archivable {
         this.walks = walks;
     }
 
-    public boolean isNeutered() {
+    public Boolean isNeutered() {
         return isNeutered;
     }
 
-    public void setNeutered(boolean neutered) {
+    public void setNeutered(Boolean neutered) {
         isNeutered = neutered;
     }
 }

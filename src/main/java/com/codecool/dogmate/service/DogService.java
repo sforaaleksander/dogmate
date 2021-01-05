@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DogService extends GenericRemovableService<Dog, Long> {
+public class DogService extends GenericPagingAndSortingRemovableService<Dog, Long> {
 
     @Autowired
     DogService(DogRepository repository) {

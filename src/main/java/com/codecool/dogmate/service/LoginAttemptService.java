@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginAttemptService extends GenericService<LoginAttempt, Long> {
+public class LoginAttemptService extends GenericPagingAndSortingService<LoginAttempt, Long> {
 
     @Autowired
     LoginAttemptService(LoginAttemptRepository repository) {

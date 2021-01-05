@@ -14,4 +14,15 @@ public class WalkAreaController extends CommonAccessRemovableGenericController<W
     WalkAreaController(WalkAreaService walkAreaService) {
         super(walkAreaService);
     }
+
+    @Override
+    public WalkArea specificUpdate(WalkArea original, WalkArea updated) {
+        if (updated.getName() != null) {
+            original.setName(updated.getName());
+        }
+        if (updated.getActive() != null) {
+            original.setActive(updated.getActive());
+        }
+        return original;
+    }
 }
