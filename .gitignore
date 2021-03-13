@@ -3,12 +3,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-mvnw
-mvnw.cmd
-FriendsSqlInsertsGenerator.java
-CoordinatesInsertsGenerator.java
-AbstractInsertsGenerator.java
-src/main/resources/img/
 
 ### STS ###
 .apt_generated
@@ -41,3 +35,7 @@ build/
 data
 
 src/main/java/com/codecool/dogmate/service/CodeGenerationService.java
+FriendsSqlInsertsGenerator.java
+CoordinatesInsertsGenerator.java
+AbstractInsertsGenerator.java
+src/main/resources/img/
