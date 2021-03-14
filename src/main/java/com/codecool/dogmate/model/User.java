@@ -139,7 +139,6 @@ public class User implements Indexable<Long>, Archivable {
         this.isActive = active;
     }
 
-//    @JsonIgnore //must be commented to permit post with new user
     public String getPassword() {
         return password;
     }

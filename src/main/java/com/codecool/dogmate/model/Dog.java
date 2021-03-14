@@ -38,12 +38,10 @@ public class Dog implements Indexable<Long>, Archivable {
 
     @ManyToOne
     @NotNull
-//    @JsonIgnoreProperties(value = "id")
     private Breed breed;
 
     @ManyToOne
     @NotNull
-//    @JsonIgnoreProperties(value = "id")
     private Temper temper;
 
     @Column(columnDefinition = "Boolean default false", nullable = false)
