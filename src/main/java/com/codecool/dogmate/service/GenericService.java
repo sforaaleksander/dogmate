@@ -2,8 +2,6 @@ package com.codecool.dogmate.service;
 
 import com.codecool.dogmate.exception.NotFoundException;
 import com.codecool.dogmate.model.Indexable;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
