@@ -13,7 +13,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/register")
 public class RegisterController {
-    private RegisterService registerService;
+    private final RegisterService registerService;
 
     @Autowired
     RegisterController(RegisterService registerService){

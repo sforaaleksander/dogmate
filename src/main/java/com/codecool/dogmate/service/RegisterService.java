@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RegisterService {
-    private PasswordEncoder passwordEncoder;
-    private UserRepository userRepository;
-    private UserTypeRepository userTypeRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final UserTypeRepository userTypeRepository;
 
     @Autowired
     RegisterService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserTypeRepository userTypeRepository ) {
