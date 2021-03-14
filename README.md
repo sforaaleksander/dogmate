@@ -5,7 +5,7 @@
   </a>
 </p>
 
-This is backend of our dogmate project. You can test it with postman, or you can use it with the [frontend](https://github.com/sforaaleksander/dogmate-frontend).
+This is backend of our dogmate project. You can test it with the postman, or you can use it with the [frontend](https://github.com/sforaaleksander/dogmate-frontend).
 
 > Dogmate is a project which helps you to get to know new people, and stay in touch with the ones you know during walks with your dogs. Plan your walks, and join other people, and their dogs.
 
@@ -25,7 +25,7 @@ We provided two users, which can be used for testing:
 - email: `user@user.com`    password: `user`
 - email: `admin@admin.com`  password: `admin`
 
-You can use it to login with the [frontend](https://github.com/sforaaleksander/dogmate-frontend) of our project, or with postman.
+You can use it to login with the [frontend](https://github.com/sforaaleksander/dogmate-frontend) of our project, or with the postman.
 
 ### Postman
 
