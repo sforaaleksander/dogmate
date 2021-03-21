@@ -8,6 +8,9 @@ import java.util.Set;
 
 public class ApplicationUser implements UserDetails {
 
+    private final Long id;
+    private final String avatar;
+    private final String name;
     private final String username;
     private final String password;
     private final Set<? extends GrantedAuthority> grantedAuthorities;
@@ -16,13 +19,16 @@ public class ApplicationUser implements UserDetails {
     private final boolean isCredentialsNonExpired;
     private final boolean isEnabled;
 
-    public ApplicationUser(String username,
+    public ApplicationUser(Long id, String avatar, String name, String username,
                            String password,
                            Set<? extends GrantedAuthority> grantedAuthorities,
                            boolean isAccountNonExpired,
                            boolean isAccountNonLocked,
                            boolean isCredentialsNonExpired,
                            boolean isEnabled) {
+        this.id = id;
+        this.avatar = avatar;
+        this.name = name;
         this.username = username;
         this.password = password;
         this.grantedAuthorities = grantedAuthorities;
@@ -65,5 +71,17 @@ public class ApplicationUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return isEnabled;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public String getName() {
+        return name;
     }
 }
