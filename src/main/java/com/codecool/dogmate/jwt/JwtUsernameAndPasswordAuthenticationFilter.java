@@ -1,5 +1,8 @@
 package com.codecool.dogmate.jwt;
 
+import com.codecool.dogmate.configuration.SpringContext;
+import com.codecool.dogmate.model.User;
+import com.codecool.dogmate.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +24,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
     private final AuthenticationManager authenticationManager;
     private final JwtConfig jwtConfig;
     private final SecretKey secretKey;
+    private final UserRepository userRepository;
 
     public JwtUsernameAndPasswordAuthenticationFilter(AuthenticationManager authenticationManager,
                                                       JwtConfig jwtConfig,
@@ -28,6 +32,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
         this.authenticationManager = authenticationManager;
         this.jwtConfig = jwtConfig;
         this.secretKey = secretKey;
+        this.userRepository = SpringContext.getBean(UserRepository.class);
     }
 
     @Override
@@ -56,9 +61,15 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                                             HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication authResult) {
+
+        User user = userRepository.findByEmail(authResult.getName()).orElseThrow();
+
         String token = Jwts.builder()
                 .setSubject(authResult.getName())
                 .claim("authorities", authResult.getAuthorities())
+                .claim("id", user.getId())
+                .claim("name", user.getName())
+                .claim("avatar", user.getAvatar())
                 .setIssuedAt(new Date())
                 .setExpiration(java.sql.Date.valueOf(LocalDate.now().plusDays(jwtConfig.getTokenExpirationAfterDays())))
                 .signWith(secretKey)
