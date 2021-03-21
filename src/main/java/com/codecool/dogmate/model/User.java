@@ -38,8 +38,7 @@ public class User implements Indexable<Long>, Archivable {
 
     private String about;
 
-    @Lob
-    private Blob avatar;
+    private String avatar;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "id")
