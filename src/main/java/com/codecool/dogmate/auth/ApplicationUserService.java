@@ -23,6 +23,9 @@ public class ApplicationUserService implements UserDetailsService {
 
     private ApplicationUser convertToApplicationUser(User user) {
         return new ApplicationUser(
+                user.getId(),
+                user.getAvatar(),
+                user.getName(),
                 user.getEmail(),
                 user.getPassword(),
                 ApplicationUserRole.valueOf(user.getUserType().getName().toUpperCase()).getGrantedAuthorities(),
