@@ -1,6 +1,5 @@
 package com.codecool.dogmate.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -8,7 +7,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.sql.Blob;
 import java.util.Set;
 
 @Entity(name = "users")
@@ -38,6 +36,7 @@ public class User implements Indexable<Long>, Archivable {
 
     private String about;
 
+
     private String avatar;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -50,7 +49,7 @@ public class User implements Indexable<Long>, Archivable {
     @JsonIgnoreProperties(value = {"id", "walks"})
     private Set<Dog> dogs;
 
-    public User(String name, String email, String password, String about, Blob avatar, UserType userType) {
+    public User(String name, String email, String password, String about, String avatar, UserType userType) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -96,7 +95,7 @@ public class User implements Indexable<Long>, Archivable {
         this.about = about;
     }
 
-    public void setAvatar(Blob avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
@@ -104,7 +103,7 @@ public class User implements Indexable<Long>, Archivable {
         return isActive;
     }
 
-    public Blob getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
